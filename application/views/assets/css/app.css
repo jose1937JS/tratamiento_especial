@@ -1,0 +1,29 @@
+.container {
+	width: 90%;
+}
+
+table {
+	cursor: default;
+	font-size: 12px;
+}
+td {
+	padding: 10px 0;
+}
+
+.modal {
+	width: 80%
+}
+div.modal-content > div.container {
+	margin: auto;
+}
+.card-image { padding: 10px }
+li {
+	overflow: auto;
+}
+
+.li-row {
+	display: table-row;
+}
+.tb {
+	display: table-cell;
+}
