@@ -57,6 +57,7 @@ $route['(admin|secretaria)'] = 'inicio_controller';
 $route['admin/editar/(:num)'] = 'inicio_controller/editar/$1';
 $route['admin/eliminar/(:num)'] = 'inicio_controller/eliminar/$1';
 $route['(admin|secretaria)/informacion/(:num)'] = 'inicio_controller/informacion/$2';
+$route['(admin|secretaria)/aprobados'] = 'aprobados_controller';
+$route['(admin|secretaria)/aprobar_sol/(:num)'] = 'inicio_controller/aprobar_sol/$2';
 $route['solicitud_tratamiento_especial'] = 'solicitud_controller';
 $route['solicitud_tratamiento_especial/aniadir'] = 'solicitud_controller/aniadir';
-

@@ -35,4 +35,10 @@ class Inicio_model extends CI_Model {
 		return $this->db->query("SELECT est_trat_piv.aprobado, est_trat_piv.id_estudiante, est_trat_piv.id, est_trat_piv.id_tratamiento, estudiantes.cedula, estudiantes.nombre, estudiantes.apellido, estudiantes.email, estudiantes.telefono, estudiantes.constancia_notas, estudiantes.observacion, tratamiento.tratamiento_esp FROM est_trat_piv INNER JOIN estudiantes ON est_trat_piv.id_estudiante = estudiantes.id INNER JOIN tratamiento ON est_trat_piv.id_tratamiento = tratamiento.id WHERE est_trat_piv.id_estudiante = $id");
 	}
 
+	public function aprobar_sol($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->update('est_trat_piv', ['aprobado' => 1]);
+	}
+
 }

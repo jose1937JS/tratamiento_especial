@@ -71,4 +71,13 @@ class Inicio_controller extends CI_Controller {
 		$this->load->view('includes/footer');
 	}
 
+	public function aprobar_sol($id)
+	{
+		$usuario = $this->session->userdata('usuario');
+
+		$this->inicio_model->aprobar_sol($id);
+
+		redirect('Inicio_controller');
+	}
+
 }

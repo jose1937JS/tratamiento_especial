@@ -20,6 +20,7 @@ $(function(){
 
 	$('select').formSelect();
 
-	$('.collapsible').collapsible();	
+	$('.collapsible').collapsible();
+
 
 });

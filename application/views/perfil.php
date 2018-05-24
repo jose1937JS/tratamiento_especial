@@ -41,9 +41,7 @@
 										<td><?= $value->tratamiento_esp ?></td>
 										<td><?php ($value->aprobado == '0')? print("<i class='material-icons tooltiped' data-tooltip='no aplica'>close</i>") : print("<i class='material-icons tooltiped' data-tooltip='aprobado'>check</i>") ?></td>
 										<td>
-											<button data-tooltip="Aprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small green" style="padding: 0 8px">
-												<i class="material-icons">thumb_up</i>
-											</button>
+											<?= anchor("inicio_controller/aprobar_sol/$value->id_estudiante",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Aprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small green" style="padding: 0 8px"') ?>
 										</td>
 										<td>
 											<button data-target="materias" data-tooltip="Informacíón" class="tooltiped modal-trigger btn waves-effect waves-light btn-small blue darken-2" style="padding: 0 8px">

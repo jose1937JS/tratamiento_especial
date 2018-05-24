@@ -14,7 +14,7 @@
 				<a href="#" class="brand-logo"><img style="width:130px; margin-top:3px" src="<?= base_url() ?>/application/views/assets/images/unerg.png"></a>
 				<ul class="right hide-on-med-and-down">
 					<li class="active"><?= anchor("$usuario", '<i class="material-icons left">home</i> Inicio') ?></li>
-					<li><a href="#"><i class="material-icons left">check</i>Aprobados</a></li>
+					<li><?= anchor("$usuario/aprobados", '<i class="material-icons left">check</i>Aprobados') ?></li>
 					<li><a href="#" class="dropdown-trigger" data-target="salir">
 						<?= $usuario ?> <i class="material-icons right">keyboard_arrow_down</i>
 					</a></li>

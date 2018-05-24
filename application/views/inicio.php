@@ -50,11 +50,11 @@
 							<td><li><?= $val->tratamiento_esp ?></li></td>
 							<?php if ($usuario == "admin"): ?>
 								<td><?= anchor("admin/informacion/$val->id_estudiante", '<i class="material-icons">info</i>', ["class" => "btn btn-small waves-effect waves-light blue tooltiped btn-floating", "data-tooltip" => "Información"]) ?></td>
-								<td><a href="#editar" class="modal-trigger btn btn-small waves-effect waves-light orange tooltiped btn-floating" data-tooltip="Editar"><i class="material-icons">edit</i></a></td>
+								<!-- <td><a href="#editar" class="modal-trigger btn btn-small waves-effect waves-light orange tooltiped btn-floating" data-tooltip="Editar"><i class="material-icons">edit</i></a></td> -->
 								<td><?= anchor("admin/eliminar/$val->id", '<i class="material-icons">delete</i>', ["class" => "btn btn-small waves-effect waves-light red tooltiped btn-floating", "data-tooltip" => "Eliminar"]) ?></td>
 							<?php elseif($usuario == "secretaria"): ?>
 								<td><?= anchor("admin/informacion/$val->id_estudiante", '<i class="material-icons">info</i>', ["class" => "btn btn-small waves-effect waves-light blue tooltiped btn-floating", "data-tooltip" => "Información"]) ?></td>
-								<td><?= anchor("admin/editar/$val->id_estudiante", '<i class="material-icons">edit</i>', 'class="disabled btn btn-small btn-floating"') ?></td>
+								<!-- <td><?= anchor("admin/editar/$val->id_estudiante", '<i class="material-icons">edit</i>', 'class="disabled btn btn-small btn-floating"') ?></td> -->
 								<td><?= anchor("admin/eliminar/$val->id", '<i class="material-icons">delete</i>', 'class="disabled btn btn-small btn-floating"') ?></td>
 							<?php endif ?>
 						</tr>
@@ -120,40 +120,40 @@
 		<h4>Modal Header</h4>
 		<div class="card container">
 			<div class="card-content">
-				<form method="post" action="">
+				<?= form_open('inicio_controller/editar/') ?>
 					<div class="row">
 						<div class="input-field col s4">
 							<input type="number" disabled id="cedula">
 							<label for="nombre">Cédula</label>
 						</div>
 						<div class="input-field col s4">
-							<i class="prefix fa-fw fa fa-user"></i>
+							<i class="prefix material-icons">face</i>
 							<input type="text" name="nombre" id="nombre" class="validate">
 							<label for="nombre">Nombre</label>
 						</div>
 						<div class="input-field col s4">
-							<i class="prefix fa fa-user"></i>
+							<i class="prefix material-icons">face</i>
 							<input type="text" name="apelido" id="apelido" class="validate">
 							<label for="apelido">Apelido</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s6">
-							<i class="prefix fa fa-phone"></i>
+							<i class="prefix material-icons">phone</i>
 							<input type="number" name="telefono" id="telefono" class="validate">
 							<label for="telefono">Teléfono</label>
 						</div>
 						<div class="input-field col s6">
-							<i class="prefix fa fa-envelope"></i>
+							<i class="prefix material-icons">email</i>
 							<input type="email" name="email" id="email" class="validate">
 							<label for="email">Correo Electrónico</label>
 						</div>
 					</div>
+					<div class="row">
+						<button type="submit" class="btn waves-effect waves-light red"><i class="material-icons">edit</i></button>
+					</div>
 				</form>
 			</div>
 		</div>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="modal-action modal-close btn red">enlace</a>
 	</div>
 </div>
