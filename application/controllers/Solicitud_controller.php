@@ -48,14 +48,18 @@ class Solicitud_controller extends CI_Controller {
 				'parm1' => $this->input->post('parm1'),
 				'parm2' => $this->input->post('parm2'),
 
+				'grado1' => $this->input->post('grado1'),
+
 				'ultsemestre' => $this->input->post('ultsemestre'),
 				'ultsemm1' => $this->input->post('ultsemm1'),
 				'ultsemm2' => $this->input->post('ultsemm2'),
 				'ultsemm3' => $this->input->post('ultsemm3'),
 				'ultsemcred' => $this->input->post('ultsemm3')
 			];
+
+			var_dump($trats);exit();
 	
-			$this->solicitud_model->add($data, $trat);
+			$this->solicitud_model->add($data, $trats);
 		}
 
 		redirect('solicitud_tratamiento_especial');

@@ -138,6 +138,7 @@
 						</div>
 							
 					</div>
+
 					<div class="row">
 						<div class="input-field col s4">
 							<!-- <i class="material-icons prefix">check</i>
@@ -150,10 +151,216 @@
 								<option value="5">Último Semestre</option>
 							</select>
 							<label>Tratamiento Especial</label> -->
-							
+
+							<i class="material-icons prefix">check</i>
+							<select name="extracredito">
+								<option selected>Selecciona</option>
+								<option value="1">Extra Crédito</option>
+							</select>
+							<label>Extra Crédito</label>
+						</div>
+						<div class="input-field col s2">
+							<select name="credm1">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>1ra Materia</label>
+						</div>
+						<div class="input-field col s2">
+							<select name="credm2">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>2ra Materia</label>
+						</div>
+						<div class="input-field col s2">
+							<select name="credm3">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>3ra Materia</label>
+						</div>
+						<div class="input-field col s2 ">
+							<input type="number" name="credcred" id="credcred">
+							<label for="credcred">Créditos a solicitar</label>
 						</div>
 					</div>
+
 					<div class="row">
+						<div class="input-field col s4">
+							<i class="material-icons prefix">check</i>
+							<select name="extraordinario">
+								<option selected>Selecciona</option>
+								<option value="2">Extraordinario</option>
+							</select>
+							<label>Extraordinario</label>
+						</div>
+						<div class="input-field col s4">
+							<select name="extm1">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>1ra Materia</label>
+						</div>
+						<div class="input-field col s4">
+							<select name="extm2">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>2ra Materia</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s4">
+							<i class="material-icons prefix">check</i>
+							<select name="paralelo">
+								<option selected>Selecciona</option>
+								<option value="3">Paralelo</option>
+							</select>
+							<label>Paralelo</label>
+						</div>
+						<div class="input-field col s4">
+							<select name="parm1">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>1ra Materia</label>
+						</div>
+						<div class="input-field col s4">
+							<select name="parm2">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>2ra Materia</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s4">
+							<i class="material-icons prefix">check</i>
+							<select name="ultsemestre">
+								<option selected>Selecciona</option>
+								<option value="5">Último Semestre</option>
+							</select>
+							<label>Último Semestre</label>
+						</div>
+						<div class="input-field col s2">
+							<select name="ultsemm1">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>1ra Materia</label>
+						</div>
+						<div class="input-field col s2">
+							<select name="ultsemm2">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>2ra Materia</label>
+						</div>
+						<div class="input-field col s2">
+							<select name="ultsemm3">
+								<option value="1"></option>
+								<option value="2"></option>
+								<option value="3"></option>
+								<option value="4"></option>
+								<option value="5"></option>
+								<option value="6"></option>
+								<option value="7"></option>
+								<option value="8"></option>
+								<option value="9"></option>
+								<option value="10"></option>
+							</select>
+							<label>3ra Materia</label>
+						</div>
+						<div class="input-field col s2">
+							<input type="number" name="ultsemcred" id="ultsemcred">
+							<label for="ultsemcred">Créditos a solicitar</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s4">
+							<i class="material-icons prefix">check</i>
+							<select name="grado1">
+								<option selected >Selecciona</option>
+								<option value="4">Proyecto de Grado I</option>
+							</select>
+							<label>Proyecto de Grado I</label>
+						</div>
 						<div class="input-field col s8">
 							<i class="material-icons prefix">announcement</i>
 							<textarea class="materialize-textarea" id="obs" name="obs"></textarea>

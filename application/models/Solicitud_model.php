@@ -2,7 +2,7 @@
 
 class Solicitud_model extends CI_Model {
 
-	public function add($data, $trat)
+	public function add($data, $trats)
 	{
 		$this->load->database();
 		$this->db->insert('estudiantes', $data);
@@ -10,13 +10,17 @@ class Solicitud_model extends CI_Model {
 		$a = $this->db->query('select @@identity as last_id');
 		$b = $a->result_array();
 
-		foreach ($trat as $key => $value) {
+		var_dump($trats);
+
+		foreach ($trats as $value) {
 			$dat = [
 				'id_estudiante' => $b[0]['last_id'],
 				'id_tratamiento' => $value
 			];
 
-			$this->db->insert('est_trat_piv', $dat);
+			var_dump($value);
+
+			//$this->db->insert('est_trat_piv', $dat);
 		}
 	}
 
