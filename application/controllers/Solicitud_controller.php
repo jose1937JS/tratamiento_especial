@@ -56,8 +56,6 @@ class Solicitud_controller extends CI_Controller {
 				'ultsemm3' => $this->input->post('ultsemm3'),
 				'ultsemcred' => $this->input->post('ultsemm3')
 			];
-
-			var_dump($trats);exit();
 	
 			$this->solicitud_model->add($data, $trats);
 		}

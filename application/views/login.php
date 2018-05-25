@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Login</title>
-	<link rel="stylesheet" href="application/views/assets/materialize/css/materialize.css">
+	<link rel="stylesheet" href="<?= base_url() ?>/application/views/assets/materialize/css/materialize.css">
 	<link rel="stylesheet" href="<?= base_url() ?>/application/views/assets/materialize/font/icon.css">
 	<style>
 		.card {

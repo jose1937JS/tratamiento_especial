@@ -98,7 +98,7 @@
 		<div class="card">
 			<div class="card-content">
 				<span class="card-title">Formaliza tu Tratamiento Especial</span><br>
-				<?= form_open_multipart('solicitud_controller/aniadir') ?>
+				<?= form_open_multipart('solicitud_controller/aniadir', 'id="form"') ?>
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">fiber_pin</i>
@@ -141,71 +141,31 @@
 
 					<div class="row">
 						<div class="input-field col s4">
-							<!-- <i class="material-icons prefix">check</i>
-							<select multiple name="tratamiento[]" id="tratamiento">
-								<option disabled selected>Escoge una opcion</option>
-								<option value="1">Extra Crédito</option>
-								<option value="2">Examen Extraordinario</option>
-								<option value="3">Paralelo</option>
-								<option value="4">Proyecto de Grado I</option>
-								<option value="5">Último Semestre</option>
-							</select>
-							<label>Tratamiento Especial</label> -->
-
 							<i class="material-icons prefix">check</i>
-							<select name="extracredito">
-								<option selected>Selecciona</option>
+							<select name="extracredito" id="extracredito">
+								<option selected disabled>Selecciona</option>
 								<option value="1">Extra Crédito</option>
+								<option value="0">Deseleccionar</option>
 							</select>
 							<label>Extra Crédito</label>
 						</div>
-						<div class="input-field col s2">
-							<select name="credm1">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
+						<div class="input-field col s4">
+							<select multiple name="ecmats[]" id="ecmats" disabled>
+								<option value="1">a</option>
+								<option value="2">b</option>
+								<option value="3">c</option>
+								<option value="4">d</option>
+								<option value="5">e</option>
+								<option value="6">f</option>
+								<option value="7">g</option>
+								<option value="8">h</option>
+								<option value="9">i</option>
+								<option value="10">j</option>
 							</select>
-							<label>1ra Materia</label>
+							<label>Selecciona max 3 materias</label>
 						</div>
-						<div class="input-field col s2">
-							<select name="credm2">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
-							</select>
-							<label>2ra Materia</label>
-						</div>
-						<div class="input-field col s2">
-							<select name="credm3">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
-							</select>
-							<label>3ra Materia</label>
-						</div>
-						<div class="input-field col s2 ">
-							<input type="number" name="credcred" id="credcred">
+						<div class="input-field col s4 ">
+							<input type="number" name="credcred" id="credcred" required disabled>
 							<label for="credcred">Créditos a solicitar</label>
 						</div>
 					</div>
@@ -214,40 +174,25 @@
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
 							<select name="extraordinario">
-								<option selected>Selecciona</option>
+								<option selected disabled>Selecciona</option>
 								<option value="2">Extraordinario</option>
 							</select>
 							<label>Extraordinario</label>
 						</div>
 						<div class="input-field col s4">
-							<select name="extm1">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
+							<select multiple name="extmats[]" id="extmats">
+								<option value="1">a</option>
+								<option value="2">b</option>
+								<option value="3">c</option>
+								<option value="4">d</option>
+								<option value="5">e</option>
+								<option value="6">f</option>
+								<option value="7">g</option>
+								<option value="8">h</option>
+								<option value="9">i</option>
+								<option value="10">j</option>
 							</select>
-							<label>1ra Materia</label>
-						</div>
-						<div class="input-field col s4">
-							<select name="extm2">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
-							</select>
-							<label>2ra Materia</label>
+							<label>Selecciona un max de 2 materias</label>
 						</div>
 					</div>
 
@@ -255,40 +200,25 @@
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
 							<select name="paralelo">
-								<option selected>Selecciona</option>
+								<option selected disabled>Selecciona</option>
 								<option value="3">Paralelo</option>
 							</select>
 							<label>Paralelo</label>
 						</div>
 						<div class="input-field col s4">
-							<select name="parm1">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
+							<select name="parmats[]" multiple id="parmats">
+								<option value="1">a</option>
+								<option value="2">b</option>
+								<option value="3">t</option>
+								<option value="4">s</option>
+								<option value="5">f</option>
+								<option value="6">h</option>
+								<option value="7">u</option>
+								<option value="8">i</option>
+								<option value="9">t</option>
+								<option value="10">e</option>
 							</select>
-							<label>1ra Materia</label>
-						</div>
-						<div class="input-field col s4">
-							<select name="parm2">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
-							</select>
-							<label>2ra Materia</label>
+							<label>Selecciona un max de 2 materias</label>
 						</div>
 					</div>
 
@@ -296,58 +226,28 @@
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
 							<select name="ultsemestre">
-								<option selected>Selecciona</option>
+								<option selected disabled>Selecciona</option>
 								<option value="5">Último Semestre</option>
 							</select>
 							<label>Último Semestre</label>
 						</div>
 						<div class="input-field col s2">
-							<select name="ultsemm1">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
+							<select name="ultsemmats[]" id="ultsemmats" multiple>
+								<option value="1">a</option>
+								<option value="2">f</option>
+								<option value="3">g</option>
+								<option value="4">h</option>
+								<option value="5">j</option>
+								<option value="6">l</option>
+								<option value="7">k</option>
+								<option value="8">r</option>
+								<option value="9">e</option>
+								<option value="10">w</option>
 							</select>
-							<label>1ra Materia</label>
+							<label>Seleccione un max de 3 materias</label>
 						</div>
 						<div class="input-field col s2">
-							<select name="ultsemm2">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
-							</select>
-							<label>2ra Materia</label>
-						</div>
-						<div class="input-field col s2">
-							<select name="ultsemm3">
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
-								<option value="4"></option>
-								<option value="5"></option>
-								<option value="6"></option>
-								<option value="7"></option>
-								<option value="8"></option>
-								<option value="9"></option>
-								<option value="10"></option>
-							</select>
-							<label>3ra Materia</label>
-						</div>
-						<div class="input-field col s2">
-							<input type="number" name="ultsemcred" id="ultsemcred">
+							<input type="number" name="ultsemcred" id="ultsemcred" required>
 							<label for="ultsemcred">Créditos a solicitar</label>
 						</div>
 					</div>
@@ -356,7 +256,7 @@
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
 							<select name="grado1">
-								<option selected >Selecciona</option>
+								<option selected  disabled>Selecciona</option>
 								<option value="4">Proyecto de Grado I</option>
 							</select>
 							<label>Proyecto de Grado I</label>

@@ -3,6 +3,7 @@
 <!-- 	<script src="<?= base_url() ?>/application/views/assets/js/axios.min.js"></script>
 	<script src="<?= base_url() ?>/application/views/assets/js/vue.js"></script> -->
 	<script src="<?= base_url() ?>/application/views/assets/slick/slick.js"></script>
+	<script src="<?= base_url() ?>/application/views/assets/js/sweetalert.min.js"></script>
 	<!-- <script src="<?= base_url() ?>/application/views/assets/datatables/pdfmake.min.js"></script> -->
 <!-- 	<script src="<?= base_url() ?>/application/views/assets/datatables/vfs_fonts.js"></script> -->
 	<script src="<?= base_url() ?>/application/views/assets/js/app.js"></script>
