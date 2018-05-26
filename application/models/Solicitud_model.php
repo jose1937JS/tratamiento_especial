@@ -5,7 +5,7 @@ class Solicitud_model extends CI_Model {
 	public function add($data, $trats)
 	{
 		$this->load->database();
-		//$this->db->insert('estudiantes', $data);
+		$this->db->insert('estudiantes', $data);
 
 		$a = $this->db->query('select @@identity as last_id');
 		$b = $a->result_array();
@@ -15,50 +15,83 @@ class Solicitud_model extends CI_Model {
 
 		$trats = array_merge($trats);
 
-		foreach ($trats as $key => $value) {
-			if (gettype($value) == 'array') {
-				foreach ($value as $k => $v) {
-					var_dump($value) . "<br>";
-					var_dump($v). "<br>";
-				}
+		$id =  $b[0]['last_id'];
+		
+		if (isset($trats['extracredito'])) {
+			$id_trat = $trats['extracredito'];
+			$unid = $trats['credcred'];
+
+			foreach ($trats['ecmats'] as $value) {
+				$dat = [
+					'id_estudiante' => $id,
+					'id_tratamiento' => $id_trat,
+					'unidades_cred' => $unid,
+					'id_materia' => $value
+				];
+				
+				$this->db->insert('est_trat_piv', $dat);
 			}
+
 		}
-		echo "<br><br>";
-		var_dump($trats);exit();
 
-		// foreach ($trats as $key => $value) {
-		// 	$dat = [
-		// 		'id_estudiante' => $b[0]['last_id'],
-		// 		'extracredito' => 'asd'
+		if (isset($trats['extraordinario'])) {
+			$id_trat = $trats['extraordinario'];
 
+			foreach ($trats['extmats'] as  $value) {
+				$dat = [
+					'id_estudiante' => $id,
+					'id_tratamiento' => $id_trat,
+					'id_materia' => $value
+				];
+								
+				$this->db->insert('est_trat_piv', $dat);
+			}
 
-		// 		// $trats = [
-		// 		// 	'extracredito' => $this->input->post('extracredito'),
-		// 		// 	'credm1' => $this->input->post('credm1'),
-		// 		// 	'credm2' => $this->input->post('credm2'),
-		// 		// 	'credm3' => $this->input->post('credm3'),
-		// 		// 	'credcred' => $this->input->post('credcred'),
+		}
 
-		// 		// 	'extraordinario' => $this->input->post('extraordinario'),
-		// 		// 	'extm1' => $this->input->post('extm1'),
-		// 		// 	'extm2' => $this->input->post('extm2'),
+		if (isset($trats['paralelo'])) {
+			$id_trat = $trats['paralelo'];
 
-		// 		// 	'paralelo' => $this->input->post('paralelo'),
-		// 		// 	'parm1' => $this->input->post('parm1'),
-		// 		// 	'parm2' => $this->input->post('parm2'),
+			foreach ($trats['parmats'] as  $value) {
+				$dat = [
+					'id_estudiante' => $id,
+					'id_tratamiento' => $id_trat,
+					'id_materia' => $value
+				];
+				
+				$this->db->insert('est_trat_piv', $dat);
+			}
 
-		// 		// 	'grado1' => $this->input->post('grado1'),
+		}
 
-		// 		// 	'ultsemestre' => $this->input->post('ultsemestre'),
-		// 		// 	'ultsemm1' => $this->input->post('ultsemm1'),
-		// 		// 	'ultsemm2' => $this->input->post('ultsemm2'),
-		// 		// 	'ultsemm3' => $this->input->post('ultsemm3'),
-		// 		// 	'ultsemcred' => $this->input->post('ultsemm3')
-		// 		// ];
-		// 	];
+		if (isset($trats['grado1'])) {
+			$id_trat = $trats['grado1'];
 
-		// 	//$this->db->insert('est_trat_piv', $dat);
-		// }
+			$dat = [
+				'id_estudiante' => $id,
+				'id_tratamiento' => $id_trat,
+				'id_materia' => $value
+			];
+			$this->db->insert('est_trat_piv', $dat);
+
+		}
+
+		if (isset($trats['ultsemestre'])) {
+			$id_trat = $trats['ultsemestre'];
+			$unid = $trats['ultsemcred'];
+
+			foreach ($trats['ultsemmats'] as $value) {
+				$dat = [
+					'id_estudiante' => $id,
+					'id_tratamiento' => $id_trat,
+					'unidades_cred' => $unid,
+					'id_materia' => $value
+				];
+				
+				$this->db->insert('est_trat_piv', $dat);
+			}
+
+		}
 	}
 
 	public function send_mail()
