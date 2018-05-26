@@ -13,7 +13,6 @@ class Solicitud_controller extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('formulario');
-		$this->load->view('includes/footer');
 	}
 
 	public function aniadir()
@@ -35,26 +34,21 @@ class Solicitud_controller extends CI_Controller {
 			
 			$trats = [
 				'extracredito' => $this->input->post('extracredito'),
-				'credm1' => $this->input->post('credm1'),
-				'credm2' => $this->input->post('credm2'),
-				'credm3' => $this->input->post('credm3'),
+				'ecmats' => $this->input->post('ecmats'),
 				'credcred' => $this->input->post('credcred'),
 
 				'extraordinario' => $this->input->post('extraordinario'),
-				'extm1' => $this->input->post('extm1'),
-				'extm2' => $this->input->post('extm2'),
+				'extmats' => $this->input->post('extmats'),
+				
 
 				'paralelo' => $this->input->post('paralelo'),
-				'parm1' => $this->input->post('parm1'),
-				'parm2' => $this->input->post('parm2'),
+				'parmats' => $this->input->post('parmats'),
 
 				'grado1' => $this->input->post('grado1'),
 
 				'ultsemestre' => $this->input->post('ultsemestre'),
-				'ultsemm1' => $this->input->post('ultsemm1'),
-				'ultsemm2' => $this->input->post('ultsemm2'),
-				'ultsemm3' => $this->input->post('ultsemm3'),
-				'ultsemcred' => $this->input->post('ultsemm3')
+				'ultsemmats' => $this->input->post('ultsemmats'),
+				'ultsemcred' => $this->input->post('ultsemcred')
 			];
 	
 			$this->solicitud_model->add($data, $trats);

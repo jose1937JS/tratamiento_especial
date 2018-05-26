@@ -57,7 +57,7 @@
 				</ul>
 			</div>
 		</div>
-		<!-- <iframe class="right" src="<?= base_url() ?>application/third_party/<?= $infor[1]->constancia_notas ?>" frameborder="0" width="47%" height="520px"></iframe> -->
+		<iframe class="right" src="<?= base_url() ?>application/third_party/<?= $infor[1]->constancia_notas ?>" frameborder="0" width="47%" height="520px"></iframe>
 	</div>
 
 </main>

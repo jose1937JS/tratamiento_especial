@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<title>Tratamiento Especial AIS</title>
 	<link rel="stylesheet" href="<?= base_url() ?>/application/views/assets/materialize/css/materialize.css">
-	<link rel="stylesheet" href="<?= base_url() ?>/application/views/assets/materialize/font/icon.css">
 	<link rel="stylesheet" href="<?= base_url() ?>/application/views/assets/slick/slick.css">
 	<link rel="stylesheet" href="<?= base_url() ?>/application/views/assets/slick/slick-theme.css">
 	<link rel="stylesheet" href="<?= base_url() ?>/application/views/assets/css/app.css">
@@ -150,7 +149,7 @@
 							<label>Extra Crédito</label>
 						</div>
 						<div class="input-field col s4">
-							<select multiple name="ecmats[]" id="ecmats" disabled>
+							<select multiple name="ecmats[]" disabled id="ecmats">
 								<option value="1">a</option>
 								<option value="2">b</option>
 								<option value="3">c</option>
@@ -173,14 +172,15 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
-							<select name="extraordinario">
+							<select name="extraordinario" id="extraordinario">
 								<option selected disabled>Selecciona</option>
 								<option value="2">Extraordinario</option>
+								<option value="0">Deseleccionar</option>
 							</select>
 							<label>Extraordinario</label>
 						</div>
 						<div class="input-field col s4">
-							<select multiple name="extmats[]" id="extmats">
+							<select multiple name="extmats[]" id="extmats" disabled>
 								<option value="1">a</option>
 								<option value="2">b</option>
 								<option value="3">c</option>
@@ -199,14 +199,15 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
-							<select name="paralelo">
+							<select name="paralelo" id="paralelo">
 								<option selected disabled>Selecciona</option>
 								<option value="3">Paralelo</option>
+								<option value="0">Deseleccionar</option>
 							</select>
 							<label>Paralelo</label>
 						</div>
 						<div class="input-field col s4">
-							<select name="parmats[]" multiple id="parmats">
+							<select name="parmats[]" multiple id="parmats" disabled>
 								<option value="1">a</option>
 								<option value="2">b</option>
 								<option value="3">t</option>
@@ -225,14 +226,15 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
-							<select name="ultsemestre">
+							<select name="ultsemestre" id="ultsemestre">
 								<option selected disabled>Selecciona</option>
 								<option value="5">Último Semestre</option>
+								<option value="0">Deseleccionar</option>
 							</select>
 							<label>Último Semestre</label>
 						</div>
 						<div class="input-field col s2">
-							<select name="ultsemmats[]" id="ultsemmats" multiple>
+							<select name="ultsemmats[]" id="ultsemmats" multiple disabled>
 								<option value="1">a</option>
 								<option value="2">f</option>
 								<option value="3">g</option>
@@ -247,7 +249,7 @@
 							<label>Seleccione un max de 3 materias</label>
 						</div>
 						<div class="input-field col s2">
-							<input type="number" name="ultsemcred" id="ultsemcred" required>
+							<input type="number" name="ultsemcred" id="ultsemcred" disabled required>
 							<label for="ultsemcred">Créditos a solicitar</label>
 						</div>
 					</div>
@@ -258,6 +260,7 @@
 							<select name="grado1">
 								<option selected  disabled>Selecciona</option>
 								<option value="4">Proyecto de Grado I</option>
+								<option value="0">Deseleccionar</option>
 							</select>
 							<label>Proyecto de Grado I</label>
 						</div>
@@ -279,6 +282,8 @@
 	<script src="<?= base_url() ?>/application/views/assets/js/jquery-3.2.1.min.js"></script>
 	<script src="<?= base_url() ?>/application/views/assets/materialize/js/materialize.min.js"></script>
 	<script src="<?= base_url() ?>/application/views/assets/slick/slick.js"></script>
+	<script src="<?= base_url() ?>/application/views/assets/js/sweetalert.min.js"></script>
+	<script src="<?= base_url() ?>/application/views/assets/js/app.js"></script>
 
 	<script>
 		$(function(){
@@ -289,7 +294,23 @@
 				autoplaySpeed: 1000,
 				infinite : true,
 				slidesToShow: 4,
-				slidesToScroll: 1
+				slidesToScroll: 1,
+				responsive : [
+					{
+						breakpoint : 800,
+						settings : {
+							slidesToShow : 3,
+							slidesToScroll : 1
+						}
+					},
+					{
+						breakpoint : 590,
+						settings : {
+							slidesToShow : 2,
+							slidesToScroll : 1
+						}
+					}
+				]
 			});
 
 
