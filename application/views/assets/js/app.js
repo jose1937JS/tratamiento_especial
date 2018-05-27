@@ -1,5 +1,7 @@
 $(function(){
 
+	
+
 	var elem = $('.dropdown-trigger');
 	M.Dropdown.init(elem, {
 		coverTrigger: false

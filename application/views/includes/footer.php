@@ -12,7 +12,20 @@
 	<script>
 		// esto se debe de ejecutar una sola vex
 		$(document).ready(function(){
-			M.toast({ html: '<i class="material-icons ">mood</i>&nbsp;&nbsp; Bienvenido &nbsp;<b><?= $usuario ?></b>' }).timeRemaining = 1500;
+			var i;
+			if (sessionStorage.getItem('contador')) {
+				i = parseInt(sessionStorage.getItem('contador'));
+				sessionStorage.setItem('contador', i + 1);
+			}
+			else {
+				sessionStorage.setItem('contador', 1);
+			}
+			
+			console.log(i)
+
+			if (sessionStorage.getItem('contador') == 1 ) {
+				M.toast({ html: '<i class="material-icons ">mood</i>&nbsp;&nbsp; Bienvenido &nbsp;<b><?= $usuario ?></b>' }).timeRemaining = 1500;
+			}
 		})
 	</script>
 </body>

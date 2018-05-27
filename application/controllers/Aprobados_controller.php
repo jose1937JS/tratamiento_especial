@@ -11,6 +11,8 @@ class Aprobados_controller extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->
+
 		$this->load->view('includes/header', $dat = ['usuario' => $this->session->userdata('usuario')]);
 		$this->load->view('aprobados');
 		$this->load->view('includes/footer');

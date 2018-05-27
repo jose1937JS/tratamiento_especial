@@ -12,6 +12,7 @@
 							<option value="3">Paralelo</option>
 							<option value="4">Proyecto de Grado I</option>
 							<option value="5">Último Semestre</option>
+							<option value="true">Aprobados</option>
 						</select>
 						<label>Filtrar por:</label>
 					</div>
@@ -28,20 +29,20 @@
 			<table class="highlight responsive-table display" id="tabla">
 				<thead>
 					<tr>
-						<th>ID</th>
+						<th>Aprob.</th>
 						<th>CEDULA</th>
 						<th>NOMBRE</th>
 						<th>APELLIDO</th>
 						<th>TELEFONO</th>
 						<th>EMAIL</th>
 						<th>TRATAMIENTO ESPECIAL</th>
-						<th colspan="3" class="center">FUNCIONES</th>
+						<th colspan="2" class="center">FUNCIONES</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach($est->result() as $val): ?>
 						<tr>
-							<td><?= $val->id_estudiante ?></td>
+							<td><?php ($val->aprobado == 'false')? print("<i class='material-icons tooltiped red-text' data-tooltip='no aplica'>close</i>") : print("<i class='material-icons tooltiped green-text' data-tooltip='aprobado'>check</i>") ?></td>
 							<td><?= $val->cedula ?></td>
 							<td><?= $val->nombre ?></td>
 							<td><?= $val->apellido ?></td>
@@ -62,60 +63,23 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<th>ID</th>
+						<th>Aprob.</th>
 						<th>CEDULA</th>
 						<th>NOMBRE</th>
 						<th>APELLIDO</th>
 						<th>TELEFONO</th>
 						<th>EMAIL</th>
 						<th>TRATAMIENTO ESPECIAL</th>
-						<th colspan="3" class="center">FUNCIONES</th>
+						<th colspan="2" class="center">FUNCIONES</th>
 					</tr>
 				</tfoot>
 			</table>
-
-	<!-- <table class="highlight responsive-table">
-        <thead>
-            <tr>
-                <th>Aprob.</th>
-                <th>CEDULA</th>
-                <th>NOMBRE</th>
-                <th>APELLIDO</th>
-                <th>TELEFONO</th>
-                <th>TRAT. ESP.</th>
-                <th>INFO.</th>
-                <th>EDIT.</th>
-                <th>ELIM.</th>
-            </tr>
-        </thead>
-        <tbody>
-        	<tr v-for="(i, index) in info">
-        		<td> {{ i.id }} </td>
-        		<td> {{ i.cedula }} </td>
-        		<td> {{ i.nombre }} </td>
-        		<td> {{ i.apellido }} </td>
-        	</tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Aprob.</th>
-                <th>CEDULA</th>
-                <th>NOMBRE</th>
-                <th>APELLIDO</th>
-                <th >TELEFONO</th>
-                <th>TRAT. ESP.</th>
-                <th>INFO.</th>
-                <th>EDIT.</th>
-                <th>ELIM.</th>
-            </tr>
-        </tfoot>
-    </table> -->
 
 		</div>
 	</div>
 </div>
 
-<div id="editar" class="modal">
+<!-- <div id="editar" class="modal">
 	<div class="modal-content">
 		<h4>Modal Header</h4>
 		<div class="card container">
@@ -156,4 +120,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->

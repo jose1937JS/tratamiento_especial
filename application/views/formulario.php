@@ -101,12 +101,12 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">fiber_pin</i>
-							<input type="number" name="cedula" id="cedula" required class="validate">
+							<input type="number" name="cedula" id="cedula" required class="validate" pattern="[0-9]{7,9}">
 							<label for="cedula">Cédula</label> 
 						</div>
 						<div class="input-field col s4">
 							<i class="material-icons prefix">face</i>
-							<input type="text" name="nombre" id="nombre" required class="validate">
+							<input type="text" name="nombre" id="nombre" required class="validate" pattern="[A-Za-z]\s*">
 							<label for="nombre">Nombre</label> 
 						</div>
 						<div class="input-field col s4">
