@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-05-2018 a las 19:25:55
+-- Tiempo de generación: 27-05-2018 a las 00:09:44
 -- Versión del servidor: 5.7.21-0ubuntu0.17.10.1
 -- Versión de PHP: 7.1.11-0ubuntu0.17.10.1
 
@@ -46,9 +46,8 @@ CREATE TABLE `estudiantes` (
 --
 
 INSERT INTO `estudiantes` (`id`, `nombre`, `apellido`, `cedula`, `telefono`, `email`, `observacion`, `constancia_notas`) VALUES
-(34, 'Jose Fernando', 'Lopez Ort', '258872', '04244444444', 'asdsadsa@sadsada', '1234567891012345678910123456789101234567891012345678910123456789101234567891012345678910123456789101234567891012345678910', 'oop_in_php_tutorial3.pdf'),
-(35, 'jose', 'lopez', '25887282', '1312323123', '3213231@123213', 'qwee', 'sql_tutorial1.pdf'),
-(37, 'Iraida Josefina', 'Lopez', '10669419', '02464431760', 'irajose@hotjail.com', 'asda sdasad asdasdasd asdadadas asdasd aasda sdasd sadas da s  aada dasdasdad asdasds dasd as dasdas dasdsad a', 'web_developers_guide_tutorial.pdf');
+(45, 'jose', 'lopez', '25887272', '123213123', '1321@123', '', 'oop_in_php_tutorial2.pdf'),
+(46, 'Gibert', 'Carreta', '23795320', '123123', '131@qw', 'wqewqewqeqweqe', 'Postgres-Tutorial.pdf');
 
 -- --------------------------------------------------------
 
@@ -68,8 +67,10 @@ CREATE TABLE `est_trat_piv` (
 --
 
 INSERT INTO `est_trat_piv` (`id`, `id_estudiante`, `id_tratamiento`, `aprobado`) VALUES
-(39, 37, 3, 0),
-(40, 37, 4, 0);
+(50, 45, 1, 0),
+(51, 45, 4, 0),
+(52, 45, 5, 0),
+(54, 46, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -79,8 +80,15 @@ INSERT INTO `est_trat_piv` (`id`, `id_estudiante`, `id_tratamiento`, `aprobado`)
 
 CREATE TABLE `materias` (
   `id` int(11) NOT NULL,
-  `materia` varchar(20) COLLATE utf8_spanish2_ci NOT NULL
+  `materia` varchar(50) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `materias`
+--
+
+INSERT INTO `materias` (`id`, `materia`) VALUES
+(1, 'ARTE Y CULTURA');
 
 -- --------------------------------------------------------
 
@@ -103,6 +111,33 @@ INSERT INTO `tratamiento` (`id`, `tratamiento_esp`) VALUES
 (3, 'Paralelo'),
 (4, 'Proyecto de Grado I'),
 (5, 'Último Semestre');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `unidades_credito`
+--
+
+CREATE TABLE `unidades_credito` (
+  `id` int(11) NOT NULL,
+  `id_est_trat_piv` int(11) NOT NULL,
+  `id_materia` int(11) NOT NULL,
+  `unidades` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `unidades_credito`
+--
+
+INSERT INTO `unidades_credito` (`id`, `id_est_trat_piv`, `id_materia`, `unidades`) VALUES
+(1, 50, 4, 12),
+(2, 50, 6, 12),
+(3, 50, 7, 12),
+(4, 52, 1, 12),
+(5, 52, 2, 12),
+(6, 52, 3, 12),
+(9, 54, 4, 0),
+(10, 54, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -156,6 +191,13 @@ ALTER TABLE `tratamiento`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `unidades_credito`
+--
+ALTER TABLE `unidades_credito`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_est_trat_piv` (`id_est_trat_piv`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -163,25 +205,31 @@ ALTER TABLE `tratamiento`
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `est_trat_piv`
 --
 ALTER TABLE `est_trat_piv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
 --
 ALTER TABLE `materias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tratamiento`
 --
 ALTER TABLE `tratamiento`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `unidades_credito`
+--
+ALTER TABLE `unidades_credito`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
@@ -193,6 +241,12 @@ ALTER TABLE `tratamiento`
 ALTER TABLE `est_trat_piv`
   ADD CONSTRAINT `est_trat_piv_ibfk_1` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `est_trat_piv_ibfk_2` FOREIGN KEY (`id_tratamiento`) REFERENCES `tratamiento` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `unidades_credito`
+--
+ALTER TABLE `unidades_credito`
+  ADD CONSTRAINT `unidades_credito_ibfk_1` FOREIGN KEY (`id_est_trat_piv`) REFERENCES `est_trat_piv` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
