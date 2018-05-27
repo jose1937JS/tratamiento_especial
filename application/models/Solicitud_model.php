@@ -6,6 +6,7 @@ class Solicitud_model extends CI_Model {
 	{
 		$this->load->database();
 		$this->db->insert('estudiantes', $data);
+// Five Finger Death Punch - Wrong Side Of Heaven lyrics
 
 		$a = $this->db->query('select @@identity as last_id');
 		$b = $a->result_array();
@@ -21,15 +22,24 @@ class Solicitud_model extends CI_Model {
 			$id_trat = $trats['extracredito'];
 			$unid = $trats['credcred'];
 
+			$data = [
+				'id_estudiante' => $id,
+				'id_tratamiento' => $id_trat,
+			];
+
+			$this->db->insert('est_trat_piv', $data);
+
+			$c = $this->db->query('select max(id) as last_id from est_trat_piv');
+			$d = $c->result_array();
+			
 			foreach ($trats['ecmats'] as $value) {
 				$dat = [
-					'id_estudiante' => $id,
-					'id_tratamiento' => $id_trat,
-					'unidades_cred' => $unid,
+					'id_est_trat_piv' => $d[0]['last_id'],
+					'unidades' => $unid,
 					'id_materia' => $value
 				];
 				
-				$this->db->insert('est_trat_piv', $dat);
+				$this->db->insert('unidades_credito', $dat);
 			}
 
 		}
@@ -37,14 +47,23 @@ class Solicitud_model extends CI_Model {
 		if (isset($trats['extraordinario'])) {
 			$id_trat = $trats['extraordinario'];
 
-			foreach ($trats['extmats'] as  $value) {
+			$data = [
+				'id_estudiante' => $id,
+				'id_tratamiento' => $id_trat,
+			];
+
+			$this->db->insert('est_trat_piv', $data);
+
+			$c = $this->db->query('select max(id) as last_id from est_trat_piv');
+			$d = $c->result_array();
+			
+			foreach ($trats['extmats'] as $value) {
 				$dat = [
-					'id_estudiante' => $id,
-					'id_tratamiento' => $id_trat,
+					'id_est_trat_piv' => $d[0]['last_id'],
 					'id_materia' => $value
 				];
 								
-				$this->db->insert('est_trat_piv', $dat);
+				$this->db->insert('unidades_credito', $dat);
 			}
 
 		}
@@ -52,14 +71,23 @@ class Solicitud_model extends CI_Model {
 		if (isset($trats['paralelo'])) {
 			$id_trat = $trats['paralelo'];
 
-			foreach ($trats['parmats'] as  $value) {
+			$data = [
+				'id_estudiante' => $id,
+				'id_tratamiento' => $id_trat,
+			];
+
+			$this->db->insert('est_trat_piv', $data);
+
+			$c = $this->db->query('select max(id) as last_id from est_trat_piv');
+			$d = $c->result_array();
+			
+			foreach ($trats['parmats'] as $value) {
 				$dat = [
-					'id_estudiante' => $id,
-					'id_tratamiento' => $id_trat,
+					'id_est_trat_piv' => $d[0]['last_id'],
 					'id_materia' => $value
 				];
-				
-				$this->db->insert('est_trat_piv', $dat);
+								
+				$this->db->insert('unidades_credito', $dat);
 			}
 
 		}
@@ -69,9 +97,9 @@ class Solicitud_model extends CI_Model {
 
 			$dat = [
 				'id_estudiante' => $id,
-				'id_tratamiento' => $id_trat,
-				'id_materia' => $value
+				'id_tratamiento' => $id_trat
 			];
+
 			$this->db->insert('est_trat_piv', $dat);
 
 		}
@@ -80,15 +108,24 @@ class Solicitud_model extends CI_Model {
 			$id_trat = $trats['ultsemestre'];
 			$unid = $trats['ultsemcred'];
 
+			$data = [
+				'id_estudiante' => $id,
+				'id_tratamiento' => $id_trat,
+			];
+
+			$this->db->insert('est_trat_piv', $data);
+
+			$c = $this->db->query('select max(id) as last_id from est_trat_piv');
+			$d = $c->result_array();
+			
 			foreach ($trats['ultsemmats'] as $value) {
 				$dat = [
-					'id_estudiante' => $id,
-					'id_tratamiento' => $id_trat,
-					'unidades_cred' => $unid,
+					'id_est_trat_piv' => $d[0]['last_id'],
+					'unidades' => $unid,
 					'id_materia' => $value
 				];
 				
-				$this->db->insert('est_trat_piv', $dat);
+				$this->db->insert('unidades_credito', $dat);
 			}
 
 		}

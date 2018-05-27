@@ -37,7 +37,7 @@ class Inicio_model extends CI_Model {
 
 	public function aprobar_sol($id)
 	{
-		$this->db->where('id', $id);
+		$this->db->where('id_estudiante', $id);
 		$this->db->update('est_trat_piv', ['aprobado' => 1]);
 	}
 
