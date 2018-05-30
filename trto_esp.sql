@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-05-2018 a las 00:09:44
+-- Tiempo de generación: 30-05-2018 a las 17:45:19
 -- Versión del servidor: 5.7.21-0ubuntu0.17.10.1
 -- Versión de PHP: 7.1.11-0ubuntu0.17.10.1
 
@@ -41,14 +41,6 @@ CREATE TABLE `estudiantes` (
   `constancia_notas` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Volcado de datos para la tabla `estudiantes`
---
-
-INSERT INTO `estudiantes` (`id`, `nombre`, `apellido`, `cedula`, `telefono`, `email`, `observacion`, `constancia_notas`) VALUES
-(45, 'jose', 'lopez', '25887272', '123213123', '1321@123', '', 'oop_in_php_tutorial2.pdf'),
-(46, 'Gibert', 'Carreta', '23795320', '123123', '131@qw', 'wqewqewqeqweqe', 'Postgres-Tutorial.pdf');
-
 -- --------------------------------------------------------
 
 --
@@ -61,16 +53,6 @@ CREATE TABLE `est_trat_piv` (
   `id_tratamiento` int(11) NOT NULL,
   `aprobado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `est_trat_piv`
---
-
-INSERT INTO `est_trat_piv` (`id`, `id_estudiante`, `id_tratamiento`, `aprobado`) VALUES
-(50, 45, 1, 0),
-(51, 45, 4, 0),
-(52, 45, 5, 0),
-(54, 46, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -88,7 +70,57 @@ CREATE TABLE `materias` (
 --
 
 INSERT INTO `materias` (`id`, `materia`) VALUES
-(1, 'ARTE Y CULTURA');
+(1, 'ARTE Y CULTURA'),
+(2, 'INGLES II'),
+(3, 'PROBLEMATICA CIENTIFICA TECNOLOGICA'),
+(4, 'ELECTIVA I (CONDUCTA HUMANA)'),
+(5, 'FISICA I'),
+(6, 'MATEMATICA II'),
+(7, 'ALGORITMOS I'),
+(8, 'METODOLOGIA Y TECNICAS DE INVESTIGACION'),
+(9, 'ELECTIVA II (LEGISLACION INFORMATICA)'),
+(10, 'PROGRAMACION I'),
+(11, 'MATEMATICA III'),
+(12, 'FISICA I'),
+(13, 'ALGORITMOS II'),
+(14, 'ESTRUCTURAS DISCRETAS I'),
+(15, 'BASE DE DATOS'),
+(16, 'PROGRAMACION II'),
+(17, 'PROBABILIDAD Y ESTADISTICA'),
+(18, 'MATEMATICA IV'),
+(19, 'ELECTIVA III'),
+(20, 'ORGANIZACION DEL COMPUTADOR'),
+(21, 'ALGEBRA BOOLEANA'),
+(22, 'ESTRUCTURAS DISCRETAS II'),
+(23, 'PROGRAMACION III'),
+(24, 'ELECTIVA IV (TELEINFORMATICA)'),
+(25, 'TEORIA DE SISTEMAS'),
+(26, 'INVESTIGACION DE OPERACIONES'),
+(27, 'ARQUITECTURA DEL COMPUTADOR'),
+(28, 'SISTEMAS DE INFOMACION I'),
+(29, 'METODOS NUMERICOS'),
+(30, 'INGENIERIA ECONOMICA'),
+(31, 'ELECTIVA V (INTELIGENCIA ARTIFICIAL)'),
+(32, 'CONTROL DE PROYECTOS'),
+(33, 'ORGANIZACION Y GESTION EMPRESARIAL'),
+(34, 'SISTEMAS OPERATIVOS'),
+(35, 'TRADUCTORES E INTERPRETES'),
+(36, 'SISTEMAS DE INFORMACION II'),
+(37, 'REDES'),
+(38, 'ELECTIVA DE AREA I'),
+(39, 'PASANTIA'),
+(40, 'LENGUAJE DE PROGRAMACION'),
+(41, 'SISTEMAS DE INFORMACION III'),
+(42, 'ELECTIVA DE AREA II'),
+(43, 'SISTEMAS DISTRIBUIDOS'),
+(44, 'ETICA PROFESIONAL'),
+(45, 'ELECTIVA LIBRE I'),
+(46, 'PROYECTO DE GRADO I'),
+(47, 'ELECTIVA DE AREA III'),
+(48, 'ELECTIVA LIBRE II'),
+(49, 'INFORMATICA EDUCATIVA'),
+(50, 'PROYECTO DE GRADO II'),
+(51, 'GERENCIA DE PROYECTO');
 
 -- --------------------------------------------------------
 
@@ -124,20 +156,6 @@ CREATE TABLE `unidades_credito` (
   `id_materia` int(11) NOT NULL,
   `unidades` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `unidades_credito`
---
-
-INSERT INTO `unidades_credito` (`id`, `id_est_trat_piv`, `id_materia`, `unidades`) VALUES
-(1, 50, 4, 12),
-(2, 50, 6, 12),
-(3, 50, 7, 12),
-(4, 52, 1, 12),
-(5, 52, 2, 12),
-(6, 52, 3, 12),
-(9, 54, 4, 0),
-(10, 54, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -205,19 +223,19 @@ ALTER TABLE `unidades_credito`
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `est_trat_piv`
 --
 ALTER TABLE `est_trat_piv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
 --
 ALTER TABLE `materias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `tratamiento`
@@ -229,7 +247,7 @@ ALTER TABLE `tratamiento`
 -- AUTO_INCREMENT de la tabla `unidades_credito`
 --
 ALTER TABLE `unidades_credito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
