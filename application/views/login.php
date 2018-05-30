@@ -5,12 +5,20 @@
 	<title>Login</title>
 	<link rel="stylesheet" href="<?= base_url() ?>/application/views/assets/materialize/css/materialize.css">
 	<style>
+		body {
+			background: url('<?= base_url() ?>/application/views/assets/images/AREA.jpg');
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center
+		}
+
 		.card {
 			width: 35%;
 			margin: auto;
 			position: absolute;
 			top: 0; right: 0; bottom: 0; left: 0;
 			height: 330px;
+			opacity: .93;
 		}
 
 		input[type=password]:not(.browser-default):focus:not([readonly]) + label {
@@ -26,7 +34,6 @@
 		.dropdown-content li > a, .dropdown-content li > span {
 			color: #4285f4;
 		}
-
 	</style>
 </head>
 <body>

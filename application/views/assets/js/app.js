@@ -1,5 +1,28 @@
 $(function(){
+	$('#pdf').click(function(){
+		
+		// switch($('#filtro option:selected')[0].value){
+		// 	case 1 :
+		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
+		// 		break
+		// 	case 2 : 
+		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
+		// 		break
+		// 	case 3 :
+		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
+		// 		break
+		// 	case 4 : 
+		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
+		// 		break
+		// 	case 5 : 
+		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
+		// 		break
+		// 	default :
+		// 		$('#tit').text('Todas las solicitudes.')
+		// }		
 
+		print();
+	})
 	
 
 	var elem = $('.dropdown-trigger');
@@ -117,5 +140,12 @@ $(function(){
 			})
 		}
 	});
+
+	$('#formu').submit(function(e){
+		if ($('#filtro').val() == null) {
+			e.preventDefault();
+		}
+	})
+
 
 });

@@ -12,7 +12,8 @@ class Solicitud_controller extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('formulario');
+		$data['materias'] = $this->solicitud_model->get_mats();
+		$this->load->view('formulario', $data);
 	}
 
 	public function aniadir()

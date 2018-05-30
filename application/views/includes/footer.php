@@ -1,17 +1,12 @@
 	<script src="<?= base_url() ?>/application/views/assets/js/jquery-3.2.1.min.js"></script>
 	<script src="<?= base_url() ?>/application/views/assets/materialize/js/materialize.min.js"></script>
-<!-- 	<script src="<?= base_url() ?>/application/views/assets/js/axios.min.js"></script>
-	<script src="<?= base_url() ?>/application/views/assets/js/vue.js"></script> -->
 	<script src="<?= base_url() ?>/application/views/assets/slick/slick.js"></script>
 	<script src="<?= base_url() ?>/application/views/assets/js/sweetalert.min.js"></script>
-	<!-- <script src="<?= base_url() ?>/application/views/assets/datatables/pdfmake.min.js"></script> -->
-<!-- 	<script src="<?= base_url() ?>/application/views/assets/datatables/vfs_fonts.js"></script> -->
 	<script src="<?= base_url() ?>/application/views/assets/js/app.js"></script>
-	<!-- <script src="<?= base_url() ?>/application/views/assets/js/main.js"></script> -->
 
 	<script>
 		// esto se debe de ejecutar una sola vex
-		$(document).ready(function(){
+		$(function(){
 			var i;
 			if (sessionStorage.getItem('contador')) {
 				i = parseInt(sessionStorage.getItem('contador'));

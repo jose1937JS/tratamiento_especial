@@ -10,46 +10,30 @@
 					<li class="collection-item"><b>Cédula :</b> <?= $infor[1]->cedula ?></li>
 					<li class="collection-item"><b>Teléfono :</b> <?= $infor[1]->telefono ?></li>
 					<li class="collection-item"><b>Email :</b> <?= $infor[1]->email ?></li>
-					<li class="collection-item"><b>Tratamiento Especial :</b>
-						<!-- <ul class="collapsible">
-							<?php foreach($infor as $value): ?>
-								<li>
-									<div class="collapsible-header ">
-										<table>
-											<tr>
-												<td><?= $value->tratamiento_esp ?></td>
-												<td><?php ($value->aprobado == '0')? print("<i class='material-icons tooltiped' data-tooltip='aprobado'>check</i>") : print("<i class='material-icons tooltiped' data-tooltip='no aplica'>check</i>") ?></td>
-												<td><button class="btn waves-effect waves-light btn-small green" style="padding: 0 8px"><i class="material-icons">face</i></button></div></td>
-											</tr>
-										</table>
-									</div>	
-									<div class="collapsible-body">ldadaskdjaskljdlasdj</div>
-
-								</li>
-								
-							<?php endforeach ?>
-						</ul> -->
+					<li class="collection-item" style="padding: 10px"><b>Tratamiento Especial :</b>
+						
 						<table class="highlight responsive-table">
 							<thead>
+								<th>Materia</th>
 								<th>Solicitud</th>
 								<th>Unid. Cred</th>
-								<th>Estatus</th>
-								<th colspan="2" class="center">Acciones</th>
+								<th colspan="2" class="center">Aprobar</th>
 							</thead>
 							<tbody>
 								<?php foreach($infor as $value): ?>
 									<tr>
+										<td><?= $value->materia ?></td>
 										<td><?= $value->tratamiento_esp ?></td>
-										<td><?= $value->unidades ?></td>
-										<td><?php ($value->aprobado == '0')? print("<i class='material-icons tooltiped' data-tooltip='no aplica'>close</i>") : print("<i class='material-icons tooltiped' data-tooltip='aprobado'>check</i>") ?></td>
-										<td>
-											<?= anchor("inicio_controller/aprobar_sol/$value->id",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Aprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small green" style="padding: 0 8px"') ?>
+										<td class="center"><?= $value->unidades ?></td>
+										<td class="center">
+											<?php if($value->aprobado == 'false'){
+												echo anchor("inicio_controller/aprobar_sol/$value->id",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Aprobar Solicitud / No aplica" class="tooltiped btn waves-effect waves-light btn-small orange" style="padding: 0 8px"');
+											} else {
+												echo anchor("inicio_controller/aprobar_sol/$value->id",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Solicitud Aprobada" class="tooltiped btn waves-effect waves-light btn-small green disabled" style="padding: 0 8px"');
+											}
+											?>
+											
 										</td>
-										<!-- <td>
-											<button data-target="materias" data-tooltip="Informacíón" class="tooltiped modal-trigger btn waves-effect waves-light btn-small blue darken-2" style="padding: 0 8px">
-												<i class="material-icons">info</i>
-											</button>
-										</td> -->
 									</tr>
 								<?php endforeach ?>
 							</tbody>
@@ -59,15 +43,7 @@
 				</ul>
 			</div>
 		</div>
-		<!-- <iframe class="right" src="<?= base_url() ?>application/third_party/<?= $infor[1]->constancia_notas ?>" frameborder="0" width="47%" height="520px"></iframe> -->
+		<iframe class="right" src="<?= base_url() ?>application/third_party/<?= $infor[1]->constancia_notas ?>" frameborder="0" width="48%" height="550px"></iframe>
 	</div>
 
 </main>
-
-<div class="modal" id="materias" style="width: 30%;">
-	<div class="modal-content">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitatio</p>
-	</div>
-</div>

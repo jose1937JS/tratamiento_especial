@@ -1,11 +1,30 @@
 <br>
+
+<div class="headpdf">
+	<div class="row">
+		<div class="col s2">
+			<img src="<?= base_url() ?>application/views/assets/images/unerg.png" width="150px" height="80px">
+		</div>
+		<div class="col s8 center bold">
+			<span>UNIVERSIDAD RÓMULO GALLEGOS</span><br>
+			<span>ÁREA DE INGENIERÍA EN SISTEMAS</span><br>
+			<span>PROGRAMA DE INGENIERÍA EN INFORMÁTICA</span><br>
+			<span>SOLICITUDES PARA TRATAMIENTOS ESPECIALES</span>
+			<!-- <h6 id="tit"></h6> -->
+		</div>
+		<div class="col s2">
+			<img src="<?= base_url() ?>application/views/assets/images/AIS.jpg" width="90px" height="80px">
+		</div>
+	</div>
+</div>
+	
 <div class="container" id="app">
 	<div class="card">
 		<div class="card-content">
-			<?= form_open('inicio_controller/filtro') ?>
-				<div class="row">
+			<div class="row asd">
+				<?= form_open('inicio_controller/filtro', "id='formu'") ?>
 					<div class="input-field col s4">
-						<select name="filtro" required>
+						<select name="filtro" id="filtro">
 							<option disabled selected>Escoge una opcion</option>
 							<option value="1">Extra Crédito</option>
 							<option value="2">Examen Extraordinario</option>
@@ -19,14 +38,14 @@
 					<div class="col s1">
 						<button style="margin-top: 23px" type="submit" class="btn blue waves-effect waves-light"><i class="material-icons">send</i></button>
 					</div>
-					<div class="col s4 offset-s3">
-						<button style="margin-top: 23px" class="btn waves-effect waves-light right red tooltiped" data-tooltip="PDF" data-position="top">
-							<i class="material-icons">table_chart</i>
-						</button>
-					</div>
+				</form>
+				<div class="col s4 offset-s3">
+					<button id="pdf" style="margin-top: 23px" class="btn waves-effect waves-light right red tooltiped" data-tooltip="PDF" data-position="top" type="button">
+						<i class="material-icons">table_chart</i>
+					</button>
 				</div>
-			</form>
-			<table class="highlight responsive-table display" id="tabla">
+			</div>
+			<table class="highlight">
 				<thead>
 					<tr>
 						<th>Aprob.</th>
@@ -36,7 +55,7 @@
 						<th>TELEFONO</th>
 						<th>EMAIL</th>
 						<th>TRATAMIENTO ESPECIAL</th>
-						<th colspan="2" class="center">FUNCIONES</th>
+						<th colspan="2" class="center func">FUNCIONES</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -50,18 +69,24 @@
 							<td><?= $val->email ?></td>
 							<td><li><?= $val->tratamiento_esp ?></li></td>
 							<?php if ($usuario == "admin"): ?>
-								<td><?= anchor("admin/informacion/$val->id_estudiante", '<i class="material-icons">info</i>', ["class" => "btn btn-small waves-effect waves-light blue tooltiped btn-floating", "data-tooltip" => "Información"]) ?></td>
+								<td class="func">
+									<?= anchor("admin/informacion/$val->id_estudiante", '<i class="material-icons">info</i>', ["class" => "btn btn-small waves-effect waves-light blue tooltiped btn-floating", "data-tooltip" => "Información"]) ?>
+								</td>
 								<!-- <td><a href="#editar" class="modal-trigger btn btn-small waves-effect waves-light orange tooltiped btn-floating" data-tooltip="Editar"><i class="material-icons">edit</i></a></td> -->
-								<td><?= anchor("admin/eliminar/$val->id", '<i class="material-icons">delete</i>', ["class" => "btn btn-small waves-effect waves-light red tooltiped btn-floating", "data-tooltip" => "Eliminar"]) ?></td>
+								<td class="func"><?= anchor("admin/eliminar/$val->id", '<i class="material-icons">delete</i>', ["class" => "btn btn-small waves-effect waves-light red tooltiped btn-floating", "data-tooltip" => "Eliminar"]) ?></td>
 							<?php elseif($usuario == "secretaria"): ?>
-								<td><?= anchor("admin/informacion/$val->id_estudiante", '<i class="material-icons">info</i>', ["class" => "btn btn-small waves-effect waves-light blue tooltiped btn-floating", "data-tooltip" => "Información"]) ?></td>
+								<td class="func">
+									<?= anchor("admin/informacion/$val->id_estudiante", '<i class="material-icons">info</i>', ["class" => "btn btn-small waves-effect waves-light blue tooltiped btn-floating", "data-tooltip" => "Información"]) ?>
+								</td>
 								<!-- <td><?= anchor("admin/editar/$val->id_estudiante", '<i class="material-icons">edit</i>', 'class="disabled btn btn-small btn-floating"') ?></td> -->
-								<td><?= anchor("admin/eliminar/$val->id", '<i class="material-icons">delete</i>', 'class="disabled btn btn-small btn-floating"') ?></td>
+								<td class="func">
+									<?= anchor("admin/eliminar/$val->id", '<i class="material-icons">delete</i>', 'class="disabled btn btn-small btn-floating"') ?>
+								</td>
 							<?php endif ?>
 						</tr>
 					<?php endforeach ?>
 				</tbody>
-				<tfoot>
+				<tfoot class="func">
 					<tr>
 						<th>Aprob.</th>
 						<th>CEDULA</th>

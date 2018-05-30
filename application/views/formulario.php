@@ -32,8 +32,20 @@
 					</div>
 					<div class="card-content">
 						<span class="card-title">Extra Crédito</span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt.</p>
+						Con 80 Unidades de Crédito aprobadas:
+						<ul class="li">
+							<li>* Indice académico entre 7.50 y 8.50 ptos</li>
+							<li>* Hata 4 créditos</li>
+							<li>* Indice académico entre 8.50 y 10 ptos</li>
+							<li>* Hasta 5 créditos</li>
+						</ul>
+						Con 120 Unidades de Crédito aprobadas: 
+						<ul class="li">
+							<li>* Indice académico entre 7.00 y 8.50 ptos</li>
+							<li>* Hasta 4 créditos</li>
+							<li>* Indice académico entre 8.50 y 10 ptos</li>
+							<li>* Hasta 6 créditos</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -45,8 +57,12 @@
 					</div>
 					<div class="card-content">
 						<span class="card-title">Exámenes Extraordinarios</span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt.</p>
+						Durante el periodo acádemico anterior a la solicitud:
+						<ul>
+							<li>* Aprobó al menos 1/3 de la carga académica correspondiente</li>
+							<li>* Indice académico mayor a igual al promedio del área</li>
+							<li>* Acabó todas las unidades curriculares inscritas en ese período</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -58,8 +74,10 @@
 					</div>
 					<div class="card-content">
 						<span class="card-title">Último Semestre</span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt.</p>
+						<ul>
+							<li>* Haber inscrito Proyecto de Grado II</li>
+							<li>* Solicitar ante Concejo de Área</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -71,8 +89,11 @@
 					</div>
 					<div class="card-content">
 						<span class="card-title">Paralelo</span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt.</p>
+						Con 120 Unidades de Crédito Aprobadas
+						<ul>
+							<li>* Haber aprobado la prelación</li>
+							<li>* Haber aprobado todas las unidades curriculares del semestre anterior</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -84,8 +105,11 @@
 					</div>
 					<div class="card-content">
 						<span class="card-title">Proyecto de Grado I</span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt.</p>
+						Con 143 Unidades de Crédito Aprobadas
+						<ul>
+							<li>* Consignar Plan de Estudios</li>
+							<li>* Sujeto a planificación del plan de estudios</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -101,12 +125,12 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">fiber_pin</i>
-							<input type="number" name="cedula" id="cedula" required class="validate" pattern="[0-9]{7,9}">
+							<input type="text" name="cedula" id="cedula" required class="validate" pattern="[0-9]{7,9}$">
 							<label for="cedula">Cédula</label> 
 						</div>
 						<div class="input-field col s4">
 							<i class="material-icons prefix">face</i>
-							<input type="text" name="nombre" id="nombre" required class="validate" pattern="[A-Za-z]\s*">
+							<input type="text" name="nombre" id="nombre" required class="validate" >
 							<label for="nombre">Nombre</label> 
 						</div>
 						<div class="input-field col s4">
@@ -118,7 +142,7 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">phone</i>
-							<input type="number" name="telefono" id="telefono">
+							<input type="text" name="telefono" id="telefono" class="validate" pattern="[0-9]{10, 11}">
 							<label for="telefono">Teléfono</label class="validate">
 						</div>
 						<div class="input-field col s4">
@@ -148,29 +172,24 @@
 							</select>
 							<label>Extra Crédito</label>
 						</div>
-						<div class="input-field col s4">
+						<div class="input-field col s5">
+							<i class="material-icons prefix">done_all</i>
 							<select multiple name="ecmats[]" disabled id="ecmats">
-								<option value="1">a</option>
-								<option value="2">b</option>
-								<option value="3">c</option>
-								<option value="4">d</option>
-								<option value="5">e</option>
-								<option value="6">f</option>
-								<option value="7">g</option>
-								<option value="8">h</option>
-								<option value="9">i</option>
-								<option value="10">j</option>
+								<?php foreach($materias->result() as $materia ): ?>
+									<option value="<?= $materia->id ?>"><?= $materia->materia ?></option>
+								<?php endforeach ?>
 							</select>
 							<label>Selecciona max 3 materias</label>
 						</div>
-						<div class="input-field col s4 ">
-							<input type="number" name="credcred" id="credcred" required disabled>
+						<div class="input-field col s3">
+							<i class="material-icons prefix">add_box</i>
+							<input type="number" name="credcred" id="credcred" required disabled max="21">
 							<label for="credcred">Créditos a solicitar</label>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="input-field col s4">
+						<div class="input-field col s5">
 							<i class="material-icons prefix">check</i>
 							<select name="extraordinario" id="extraordinario">
 								<option selected disabled>Selecciona</option>
@@ -179,25 +198,19 @@
 							</select>
 							<label>Extraordinario</label>
 						</div>
-						<div class="input-field col s4">
+						<div class="input-field col s7">
+							<i class="material-icons prefix">done_all</i>
 							<select multiple name="extmats[]" id="extmats" disabled>
-								<option value="1">a</option>
-								<option value="2">b</option>
-								<option value="3">c</option>
-								<option value="4">d</option>
-								<option value="5">e</option>
-								<option value="6">f</option>
-								<option value="7">g</option>
-								<option value="8">h</option>
-								<option value="9">i</option>
-								<option value="10">j</option>
+								<?php foreach($materias->result() as $materia ): ?>
+									<option value="<?= $materia->id ?>"><?= $materia->materia ?></option>
+								<?php endforeach ?>
 							</select>
 							<label>Selecciona un max de 2 materias</label>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="input-field col s4">
+						<div class="input-field col s5">
 							<i class="material-icons prefix">check</i>
 							<select name="paralelo" id="paralelo">
 								<option selected disabled>Selecciona</option>
@@ -206,18 +219,12 @@
 							</select>
 							<label>Paralelo</label>
 						</div>
-						<div class="input-field col s4">
+						<div class="input-field col s7">
+							<i class="material-icons prefix">done_all</i>
 							<select name="parmats[]" multiple id="parmats" disabled>
-								<option value="1">a</option>
-								<option value="2">b</option>
-								<option value="3">t</option>
-								<option value="4">s</option>
-								<option value="5">f</option>
-								<option value="6">h</option>
-								<option value="7">u</option>
-								<option value="8">i</option>
-								<option value="9">t</option>
-								<option value="10">e</option>
+								<?php foreach($materias->result() as $materia ): ?>
+									<option value="<?= $materia->id ?>"><?= $materia->materia ?></option>
+								<?php endforeach ?>
 							</select>
 							<label>Selecciona un max de 2 materias</label>
 						</div>
@@ -233,23 +240,18 @@
 							</select>
 							<label>Último Semestre</label>
 						</div>
-						<div class="input-field col s2">
+						<div class="input-field col s5">
+							<i class="material-icons prefix">done_all</i>
 							<select name="ultsemmats[]" id="ultsemmats" multiple disabled>
-								<option value="1">a</option>
-								<option value="2">f</option>
-								<option value="3">g</option>
-								<option value="4">h</option>
-								<option value="5">j</option>
-								<option value="6">l</option>
-								<option value="7">k</option>
-								<option value="8">r</option>
-								<option value="9">e</option>
-								<option value="10">w</option>
+								<?php foreach($materias->result() as $materia ): ?>
+									<option value="<?= $materia->id ?>"><?= $materia->materia ?></option>
+								<?php endforeach ?>
 							</select>
 							<label>Seleccione un max de 3 materias</label>
 						</div>
-						<div class="input-field col s2">
-							<input type="number" name="ultsemcred" id="ultsemcred" disabled required>
+						<div class="input-field col s3">
+							<i class="material-icons prefix">add_box</i>
+							<input type="number" name="ultsemcred" id="ultsemcred" disabled required max="21">
 							<label for="ultsemcred">Créditos a solicitar</label>
 						</div>
 					</div>

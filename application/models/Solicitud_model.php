@@ -2,9 +2,14 @@
 
 class Solicitud_model extends CI_Model {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->database();
+	}
+
 	public function add($data, $trats)
 	{
-		$this->load->database();
 		$this->db->insert('estudiantes', $data);
 // Five Finger Death Punch - Wrong Side Of Heaven lyrics
 
@@ -131,8 +136,8 @@ class Solicitud_model extends CI_Model {
 		}
 	}
 
-	public function send_mail()
+	public function get_mats()
 	{
-		// logica para enviar por correo una noticacion al estudiante q fue aprobado
+		return $this->db->get('materias');
 	}
 }

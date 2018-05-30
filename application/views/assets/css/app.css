@@ -1,5 +1,12 @@
+body {
+	background: url('http://127.0.0.1/JFLO/6mill/application/views/assets/images/AREA.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center
+}
 .container {
 	width: 90%;
+	opacity: .96
 }
 
 table {
@@ -20,10 +27,30 @@ div.modal-content > div.container {
 li {
 	overflow: auto;
 }
+.bold { font-weight: bold; }
 
-.li-row {
-	display: table-row;
+.headpdf { display: none; }
+.card-content {
+	font-size: 13px
 }
-.tb {
-	display: table-cell;
+
+@media print {
+	body.grey {
+		background-color: white !important ;
+	}
+	div.asd, div.navbar-fixed, .func, .material-tooltip {
+		display: none;
+	}
+	.headpdf { display: block; }
+	.card {
+		box-shadow: 0 0 0 0 , 0 0 0 0 , 0 0 0 0;
+		padding: 0;
+	}
+	div.bold > span {
+		font-size: 15px
+	}
+	.container { width: 100% }
+	table {
+		font-size: 10px;
+	}
 }
