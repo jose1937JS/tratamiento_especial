@@ -75,9 +75,19 @@ class Inicio_controller extends CI_Controller {
 
 	public function aprobar_sol($id)
 	{
+		// $this->load->library('email');
+		$this->inicio_model->aprobar_sol($id);
+		// $asd = $this->inicio_model->perfil($id)->result();
+
+		// $this->email->from('aasd@asd.com', 'name');
+		// $this->email->to($asd[0]->email);
+		// $this->email->subject('Email Test');
+		// $this->email->message('Testing the email class.');
+
+		// $this->email->send();
+
 		$usuario = $this->session->userdata('usuario');
 
-		$this->inicio_model->aprobar_sol($id);
 
 		redirect('Inicio_controller');
 	}

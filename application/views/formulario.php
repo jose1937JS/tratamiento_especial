@@ -142,7 +142,7 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">phone</i>
-							<input type="text" name="telefono" id="telefono" class="validate" pattern="[0-9]{10, 11}">
+							<input type="text" name="telefono" id="telefono" class="validate" pattern="[0-9]{10,11}$">
 							<label for="telefono">Teléfono</label class="validate">
 						</div>
 						<div class="input-field col s4">
