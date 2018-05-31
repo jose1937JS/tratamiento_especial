@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-05-2018 a las 17:45:19
+-- Tiempo de generación: 30-05-2018 a las 20:02:29
 -- Versión del servidor: 5.7.21-0ubuntu0.17.10.1
 -- Versión de PHP: 7.1.11-0ubuntu0.17.10.1
 
@@ -41,6 +41,14 @@ CREATE TABLE `estudiantes` (
   `constancia_notas` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `estudiantes`
+--
+
+INSERT INTO `estudiantes` (`id`, `nombre`, `apellido`, `cedula`, `telefono`, `email`, `observacion`, `constancia_notas`) VALUES
+(1, 'Jose Fernando', 'Lopez', '25887282', '04244444444', 'jflo1988@dominio.com', 'esdasda dadasd sd asdas dasda dsad asdasda asd asd as das dasdasdasdas das sa dsa dadsa dsa s mjjkjjk', 'nodejs_express_framework.pdf'),
+(2, 'Julio Cesar', 'Yanez Gon', '26026083', '', 'juliocesar@yanez.com', 'sdadadasdasdasds adadadasdas dsda dasd sadasdasdasd sad sad asdasdasd sada sdas dasd asda sdas dasdasdas dsadasdsadas dasdadas dasdasd asd asd asd qsadasdasd as dsa asdasdasda', 'nodejs_express_framework1.pdf');
+
 -- --------------------------------------------------------
 
 --
@@ -51,8 +59,18 @@ CREATE TABLE `est_trat_piv` (
   `id` int(11) NOT NULL,
   `id_estudiante` int(11) NOT NULL,
   `id_tratamiento` int(11) NOT NULL,
-  `aprobado` tinyint(1) NOT NULL
+  `aprobado` varchar(5) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `est_trat_piv`
+--
+
+INSERT INTO `est_trat_piv` (`id`, `id_estudiante`, `id_tratamiento`, `aprobado`) VALUES
+(1, 1, 1, 'false'),
+(2, 1, 2, 'true'),
+(3, 2, 2, 'false'),
+(4, 2, 3, 'false');
 
 -- --------------------------------------------------------
 
@@ -157,6 +175,21 @@ CREATE TABLE `unidades_credito` (
   `unidades` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `unidades_credito`
+--
+
+INSERT INTO `unidades_credito` (`id`, `id_est_trat_piv`, `id_materia`, `unidades`) VALUES
+(1, 1, 11, 12),
+(2, 1, 13, 12),
+(3, 1, 14, 12),
+(4, 2, 40, 0),
+(5, 2, 41, 0),
+(6, 3, 2, 0),
+(7, 3, 3, 0),
+(8, 4, 6, 0),
+(9, 4, 11, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -223,13 +256,13 @@ ALTER TABLE `unidades_credito`
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `est_trat_piv`
 --
 ALTER TABLE `est_trat_piv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
@@ -247,7 +280,7 @@ ALTER TABLE `tratamiento`
 -- AUTO_INCREMENT de la tabla `unidades_credito`
 --
 ALTER TABLE `unidades_credito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas

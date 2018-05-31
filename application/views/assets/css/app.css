@@ -34,10 +34,16 @@ li {
 	font-size: 13px
 }
 
+ul > li {
+	padding-left: 10px;
+	list-style-type: circle;
+}
+
 @media print {
-	body.grey {
-		background-color: white !important ;
+	body, html {
+		background: white;
 	}
+	.container { opacity: 1 }
 	div.asd, div.navbar-fixed, .func, .material-tooltip {
 		display: none;
 	}
