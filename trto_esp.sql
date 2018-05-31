@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-05-2018 a las 20:02:29
+-- Tiempo de generación: 30-05-2018 a las 23:29:33
 -- Versión del servidor: 5.7.21-0ubuntu0.17.10.1
 -- Versión de PHP: 7.1.11-0ubuntu0.17.10.1
 
@@ -47,7 +47,9 @@ CREATE TABLE `estudiantes` (
 
 INSERT INTO `estudiantes` (`id`, `nombre`, `apellido`, `cedula`, `telefono`, `email`, `observacion`, `constancia_notas`) VALUES
 (1, 'Jose Fernando', 'Lopez', '25887282', '04244444444', 'jflo1988@dominio.com', 'esdasda dadasd sd asdas dasda dsad asdasda asd asd as das dasdasdasdas das sa dsa dadsa dsa s mjjkjjk', 'nodejs_express_framework.pdf'),
-(2, 'Julio Cesar', 'Yanez Gon', '26026083', '', 'juliocesar@yanez.com', 'sdadadasdasdasds adadadasdas dsda dasd sadasdasdasd sad sad asdasdasd sada sdas dasd asda sdas dasdasdas dsadasdsadas dasdadas dasdasd asd asd asd qsadasdasd as dsa asdasdasda', 'nodejs_express_framework1.pdf');
+(2, 'Julio Cesar', 'Yanez Gon', '26026083', '', 'juliocesar@yanez.com', 'sdadadasdasdasds adadadasdas dsda dasd sadasdasdasd sad sad asdasdasd sada sdas dasd asda sdas dasdasdas dsadasdsadas dasdadas dasdasd asd asd asd qsadasdasd as dsa asdasdasda', 'nodejs_express_framework1.pdf'),
+(3, 'Gibert', 'Carrera M', '23795320', '04144376667', 'gibert.c@servidor.com', 'eo es un observcackin alksdlkasdlksadas jklasjdlkasjdlkjaslj askaslkjdlkasjdlkasjdlkasjdas jdalksj las jalskdjlaskjdlaskjdlaskjdlsakjdlasj laskj laksjdlaskjdlasjd lasjld ajsl jasldjasldjlasj', 'nodejs_express_framework2.pdf'),
+(4, 'Iraida ', 'Loepz', '10669419', '213123213', '2312w@xn--sdasd-rra', 'asdasdas d asdasd asdsa dasdad', 'nodejs_express_framework3.pdf');
 
 -- --------------------------------------------------------
 
@@ -59,7 +61,7 @@ CREATE TABLE `est_trat_piv` (
   `id` int(11) NOT NULL,
   `id_estudiante` int(11) NOT NULL,
   `id_tratamiento` int(11) NOT NULL,
-  `aprobado` varchar(5) COLLATE utf8_spanish2_ci NOT NULL
+  `aprobado` varchar(5) COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'false'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -70,7 +72,10 @@ INSERT INTO `est_trat_piv` (`id`, `id_estudiante`, `id_tratamiento`, `aprobado`)
 (1, 1, 1, 'false'),
 (2, 1, 2, 'true'),
 (3, 2, 2, 'false'),
-(4, 2, 3, 'false');
+(4, 2, 3, 'false'),
+(5, 3, 2, ''),
+(6, 3, 5, ''),
+(7, 4, 5, 'false');
 
 -- --------------------------------------------------------
 
@@ -188,7 +193,15 @@ INSERT INTO `unidades_credito` (`id`, `id_est_trat_piv`, `id_materia`, `unidades
 (6, 3, 2, 0),
 (7, 3, 3, 0),
 (8, 4, 6, 0),
-(9, 4, 11, 0);
+(9, 4, 11, 0),
+(10, 5, 8, 0),
+(11, 5, 9, 0),
+(12, 6, 9, 12),
+(13, 6, 10, 12),
+(14, 6, 11, 12),
+(15, 7, 5, 12),
+(16, 7, 14, 12),
+(17, 7, 21, 12);
 
 -- --------------------------------------------------------
 
@@ -256,13 +269,13 @@ ALTER TABLE `unidades_credito`
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `est_trat_piv`
 --
 ALTER TABLE `est_trat_piv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
@@ -280,7 +293,7 @@ ALTER TABLE `tratamiento`
 -- AUTO_INCREMENT de la tabla `unidades_credito`
 --
 ALTER TABLE `unidades_credito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas

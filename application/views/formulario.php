@@ -33,18 +33,18 @@
 					<div class="card-content">
 						<span class="card-title">Extra Crédito</span>
 						Con 80 Unidades de Crédito aprobadas:
-						<ul class="li browser-default">
-							<li>Indice académico entre 7.50 y 8.50 ptos</li>
-							<li>Hata 4 créditos</li>
-							<li>Indice académico entre 8.50 y 10 ptos</li>
-							<li>Hasta 5 créditos</li>
+						<ul class="li">
+							<li>* Indice académico entre 7.50 y 8.50 ptos</li>
+							<li>* Hata 4 créditos</li>
+							<li>* Indice académico entre 8.50 y 10 ptos</li>
+							<li>* Hasta 5 créditos</li>
 						</ul>
 						Con 120 Unidades de Crédito aprobadas: 
-						<ul class="li browser-default">
-							<li>Indice académico entre 7.00 y 8.50 ptos</li>
-							<li>Hasta 4 créditos</li>
-							<li>Indice académico entre 8.50 y 10 ptos</li>
-							<li>Hasta 6 créditos</li>
+						<ul class="li">
+							<li>* Indice académico entre 7.00 y 8.50 ptos</li>
+							<li>* Hasta 4 créditos</li>
+							<li>* Indice académico entre 8.50 y 10 ptos</li>
+							<li>* Hasta 6 créditos</li>
 						</ul>
 					</div>
 				</div>
@@ -59,9 +59,9 @@
 						<span class="card-title">Exámenes Extraordinarios</span>
 						Durante el periodo acádemico anterior a la solicitud:
 						<ul>
-							<li>Aprobó al menos 1/3 de la carga académica correspondiente</li>
-							<li>Indice académico mayor a igual al promedio del área</li>
-							<li>Acabó todas las unidades curriculares inscritas en ese período</li>
+							<li>* Aprobó al menos 1/3 de la carga académica correspondiente</li>
+							<li>* Indice académico mayor a igual al promedio del área</li>
+							<li>* Acabó todas las unidades curriculares inscritas en ese período</li>
 						</ul>
 					</div>
 				</div>
@@ -75,8 +75,8 @@
 					<div class="card-content">
 						<span class="card-title">Último Semestre</span>
 						<ul>
-							<li>Haber inscrito Proyecto de Grado II</li>
-							<li>Solicitar ante Concejo de Área</li>
+							<li>* Haber inscrito Proyecto de Grado II</li>
+							<li>* Solicitar ante Concejo de Área</li>
 						</ul>
 					</div>
 				</div>
@@ -91,8 +91,8 @@
 						<span class="card-title">Paralelo</span>
 						Con 120 Unidades de Crédito Aprobadas
 						<ul>
-							<li>Haber aprobado la prelación</li>
-							<li>Haber aprobado todas las unidades curriculares del semestre anterior</li>
+							<li>* Haber aprobado la prelación</li>
+							<li>* Haber aprobado todas las unidades curriculares del semestre anterior</li>
 						</ul>
 					</div>
 				</div>
@@ -107,8 +107,8 @@
 						<span class="card-title">Proyecto de Grado I</span>
 						Con 143 Unidades de Crédito Aprobadas
 						<ul>
-							<li>Consignar Plan de Estudios</li>
-							<li>Sujeto a planificación del plan de estudios</li>
+							<li>* Consignar Plan de Estudios</li>
+							<li>* Sujeto a planificación del plan de estudios</li>
 						</ul>
 					</div>
 				</div>

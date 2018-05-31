@@ -34,10 +34,10 @@ li {
 	font-size: 13px
 }
 
-ul > li {
+/*ul > li {
 	padding-left: 10px;
 	list-style-type: circle;
-}
+}*/
 
 @media print {
 	body, html {
