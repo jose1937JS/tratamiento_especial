@@ -165,7 +165,7 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
-							<select name="extracredito" id="extracredito">
+							<select name="extracredito" id="extracredito" class="select">
 								<option selected disabled>Selecciona</option>
 								<option value="1">Extra Crédito</option>
 								<option value="0">Deseleccionar</option>
@@ -191,7 +191,7 @@
 					<div class="row">
 						<div class="input-field col s5">
 							<i class="material-icons prefix">check</i>
-							<select name="extraordinario" id="extraordinario">
+							<select name="extraordinario" id="extraordinario" class="select">
 								<option selected disabled>Selecciona</option>
 								<option value="2">Extraordinario</option>
 								<option value="0">Deseleccionar</option>
@@ -212,7 +212,7 @@
 					<div class="row">
 						<div class="input-field col s5">
 							<i class="material-icons prefix">check</i>
-							<select name="paralelo" id="paralelo">
+							<select name="paralelo" id="paralelo" class="select">
 								<option selected disabled>Selecciona</option>
 								<option value="3">Paralelo</option>
 								<option value="0">Deseleccionar</option>
@@ -233,7 +233,7 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
-							<select name="ultsemestre" id="ultsemestre">
+							<select name="ultsemestre" id="ultsemestre" class="select">
 								<option selected disabled>Selecciona</option>
 								<option value="5">Último Semestre</option>
 								<option value="0">Deseleccionar</option>
@@ -259,7 +259,7 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<i class="material-icons prefix">check</i>
-							<select name="grado1">
+							<select name="grado1" class="select" id="grado1">
 								<option selected  disabled>Selecciona</option>
 								<option value="4">Proyecto de Grado I</option>
 								<option value="0">Deseleccionar</option>

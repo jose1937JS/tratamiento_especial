@@ -1,28 +1,7 @@
 $(function(){
 	$('#pdf').click(function(){
-		
-		// switch($('#filtro option:selected')[0].value){
-		// 	case 1 :
-		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
-		// 		break
-		// 	case 2 : 
-		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
-		// 		break
-		// 	case 3 :
-		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
-		// 		break
-		// 	case 4 : 
-		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
-		// 		break
-		// 	case 5 : 
-		// 		$('#tit').text('Filtrado por: ' + $('#filtro option:selected')[0].innerText)
-		// 		break
-		// 	default :
-		// 		$('#tit').text('Todas las solicitudes.')
-		// }		
-
 		print();
-	})
+	});
 	
 
 	var elem = $('.dropdown-trigger');
@@ -48,20 +27,25 @@ $(function(){
 	$('.collapsible').collapsible();
 
 
+	var count = 0;
 
-	$('#extracredito').change(function(){
+	$('#extracredito').change(function()
+	{
 		if ($('#extracredito option:selected')['0'].value == 0 ) {
+			count = count - 1;
 			$('#ecmats').attr('disabled', true);
 			$('#credcred').attr('disabled', true);
-			$('#ecmats').formSelect().destroy();
+			$('#ecmats').formSelect()
 		}
 		else {
+			count = count + 1;
 			$('#ecmats').removeAttr('disabled');
 			$('#ecmats').formSelect();
 			$('#credcred').removeAttr('disabled');
 		}
 	});
-	$('#ecmats').change(function(){
+	$('#ecmats').change(function()
+	{
 		if( $("#ecmats option:selected").length > 3 ){
 			swal("Ups!", "Debes seleccionar un máximo de 3 materias", "error");
 			$('#form').submit(function(e){
@@ -73,17 +57,21 @@ $(function(){
 		}
 	});
 
-	$('#extraordinario').change(function(){
+	$('#extraordinario').change(function()
+	{
 		if ($('#extraordinario option:selected')['0'].value == 0 ) {
+			count = count - 1;
 			$('#extmats').attr('disabled', true);
-			$('#extmats').formSelect().destroy();
+			$('#extmats').formSelect()
 		}
 		else {
+			count = count + 1;
 			$('#extmats').removeAttr('disabled');
 			$('#extmats').formSelect();
 		}
 	});
-	$('#extmats').change(function(){
+	$('#extmats').change(function()
+	{
 		if( $("#extmats option:selected").length > 2 ){
 			swal("Ups!", "Debes seleccionar un máximo de 2 materias", "error");
 			$('#form').submit(function(e){
@@ -95,17 +83,21 @@ $(function(){
 		}
 	});
 
-	$('#paralelo').change(function(){
+	$('#paralelo').change(function()
+	{
 		if ($('#paralelo option:selected')['0'].value == 0 ) {
+			count = count - 1;
 			$('#parmats').attr('disabled', true);
-			$('#parmats').formSelect().destroy();
+			$('#parmats').formSelect()
 		}
 		else {
+			count = count + 1;
 			$('#parmats').removeAttr('disabled');
 			$('#parmats').formSelect();
 		}
 	});
-	$('#parmats').change(function(){
+	$('#parmats').change(function()
+	{
 		if( $("#parmats option:selected").length > 2 ){
 			swal("Ups!", "Debes seleccionar un máximo de 2 materias", "error");
 			$('#form').submit(function(e){
@@ -117,19 +109,23 @@ $(function(){
 		}
 	});
 
-	$('#ultsemestre').change(function(){
+	$('#ultsemestre').change(function()
+	{
 		if ($('#ultsemestre option:selected')['0'].value == 0 ) {
+			count = count - 1;
 			$('#ultsemmats').attr('disabled', true);
 			$('#ultsemcred').attr('disabled', true);
-			$('#ultsemmats').formSelect().destroy();
+			$('#ultsemmats').formSelect()
 		}
 		else {
+			count = count + 1;
 			$('#ultsemmats').removeAttr('disabled');
 			$('#ultsemmats').formSelect();
 			$('#ultsemcred').removeAttr('disabled');
 		}
 	});
-	$('#ultsemmats').change(function(){
+	$('#ultsemmats').change(function()
+	{
 		if( $("#ultsemmats option:selected").length > 3 ){
 			swal("Ups!", "Debes seleccionar un máximo de 3 materias", "error");
 			$('#form').submit(function(e){
@@ -137,15 +133,28 @@ $(function(){
 					e.preventDefault();
 					console.log('formulario detenido :)');
 				}
-			})
+			});
 		}
 	});
+
+	$('#grado1').change(function()
+	{
+		if ($('#grado1 option:selected')['0'].value == 0 ) {count = count - 1; }
+		else { count = count + 1; }
+	});
+
+	$('#form').submit(function(){
+		if (count > 3) {
+			swal("Ups!", "Debes seleccionar un máximo de 3 Tratamientos Especiales", "error");
+			e.preventDefault();
+		}
+	})
 
 	$('#formu').submit(function(e){
 		if ($('#filtro').val() == null) {
 			e.preventDefault();
 		}
-	})
+	});
 
 
 });
