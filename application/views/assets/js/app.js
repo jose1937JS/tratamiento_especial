@@ -139,14 +139,14 @@ $(function(){
 
 	$('#grado1').change(function()
 	{
-		if ($('#grado1 option:selected')['0'].value == 0 ) {count = count - 1; }
+		if ( $('#grado1 option:selected')['0'].value == 0 ) {count = count - 1; }
 		else { count = count + 1; }
 	});
 
-	$('#form').submit(function(){
+	$('#form').submit(function(e){
 		if (count > 3) {
-			swal("Ups!", "Debes seleccionar un máximo de 3 Tratamientos Especiales", "error");
 			e.preventDefault();
+			swal("Ups!", "Debes seleccionar un máximo de 3 Tratamientos Especiales", "error");
 		}
 	})
 

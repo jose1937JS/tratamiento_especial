@@ -38,6 +38,17 @@ class Inicio_controller extends CI_Controller {
 		$this->load->view('includes/footer');
 	}
 
+	public function filtro_ced()
+	{
+		$c = $this->input->post('search');
+
+		$data = ['usuario' => $this->session->userdata('usuario'), 'est' => $this->inicio_model->filtro_ced($c)];
+
+		$this->load->view('includes/header', $dat = ['usuario' => $this->session->userdata('usuario')]);
+		$this->load->view('inicio', $data);
+		$this->load->view('includes/footer');
+	}
+
 	// public function data()
 	// {
 	// 	$this->output

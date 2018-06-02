@@ -30,8 +30,13 @@ class Inicio_model extends CI_Model {
 		if ($f == 'true') {
 			return $this->db->query("SELECT est_trat_piv.aprobado, est_trat_piv.id_estudiante, est_trat_piv.id, est_trat_piv.id_tratamiento, estudiantes.cedula, estudiantes.nombre, estudiantes.apellido, estudiantes.email, estudiantes.telefono , tratamiento.tratamiento_esp FROM est_trat_piv INNER JOIN estudiantes ON est_trat_piv.id_estudiante = estudiantes.id INNER JOIN tratamiento ON est_trat_piv.id_tratamiento = tratamiento.id WHERE aprobado = 'true'");	
 		}
-
+		
 		return $this->db->query("SELECT est_trat_piv.aprobado, est_trat_piv.id_estudiante, est_trat_piv.id, est_trat_piv.id_tratamiento, estudiantes.cedula, estudiantes.nombre, estudiantes.apellido, estudiantes.email, estudiantes.telefono , tratamiento.tratamiento_esp FROM est_trat_piv INNER JOIN estudiantes ON est_trat_piv.id_estudiante = estudiantes.id INNER JOIN tratamiento ON est_trat_piv.id_tratamiento = tratamiento.id WHERE id_tratamiento = $f");
+	}
+
+	public function filtro_ced($ci)
+	{
+		return $this->db->query("SELECT est_trat_piv.aprobado, est_trat_piv.id_estudiante, est_trat_piv.id, est_trat_piv.id_tratamiento, estudiantes.cedula, estudiantes.nombre, estudiantes.apellido, estudiantes.email, estudiantes.telefono , tratamiento.tratamiento_esp FROM est_trat_piv INNER JOIN estudiantes ON est_trat_piv.id_estudiante = estudiantes.id INNER JOIN tratamiento ON est_trat_piv.id_tratamiento = tratamiento.id WHERE estudiantes.cedula = $ci");
 	}
 
 	public function perfil($id)

@@ -39,7 +39,13 @@
 						<button style="margin-top: 23px" type="submit" class="btn blue waves-effect waves-light"><i class="material-icons">send</i></button>
 					</div>
 				</form>
-				<div class="col s4 offset-s3">
+				<?= form_open('inicio_controller/filtro_ced', "class='col s5'") ?>
+					<div class="input-field">
+						<i class="material-icons prefix">search</i>
+						<input type="text" name="search" id="search" required placeholder="Cédula a buscar" class="validate" pattern="[0-9]{7,9}">
+					</div>
+				</form>
+				<div class="col s2">
 					<button id="pdf" style="margin-top: 23px" class="btn waves-effect waves-light right red tooltiped" data-tooltip="PDF" data-position="top" type="button">
 						<i class="material-icons">table_chart</i>
 					</button>
