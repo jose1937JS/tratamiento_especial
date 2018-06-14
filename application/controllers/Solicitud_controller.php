@@ -1,5 +1,15 @@
 <?php
 
+
+// Extracredito un max de 6 unidades a solicitar y solo max 1 materia por solicitar v/
+// Ultimo semestre max 7 unidades de crédito a solicitar y 2 materias máximos para ingresar v/
+
+// Las materias sean del 6 semestre en adelante
+// Que tenga un modulo de activación y desactivación como un cierto tiempo para que el estudiante tenga fecha de inicio de solicitud y cierre la página y no deje solicitar mas
+// Reporte de la información del estudiante
+// Y que el administrador pueda modificar siempre cuando aprueba y no aprueba por si se equivoca en aprobar un tratamiento
+// Mira manito en extraordinario en las materias mete max 1 también y no incluyas sistema información 1 2 y 3 ni en electiva área 1 ni pasantías
+
 class Solicitud_controller extends CI_Controller {
 
 	public function __construct()

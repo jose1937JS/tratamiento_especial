@@ -46,10 +46,10 @@ $(function(){
 	});
 	$('#ecmats').change(function()
 	{
-		if( $("#ecmats option:selected").length > 3 ){
-			swal("Ups!", "Debes seleccionar un máximo de 3 materias", "error");
+		if( $("#ecmats option:selected").length > 1 ){
+			swal("Ups!", "Debes seleccionar solo 1 materia", "error");
 			$('#form').submit(function(e){
-				if( $("#ecmats option:selected").length > 3 ){
+				if( $("#ecmats option:selected").length > 1 ){
 					e.preventDefault();
 					console.log('formulario detenido :)');
 				}
@@ -126,10 +126,10 @@ $(function(){
 	});
 	$('#ultsemmats').change(function()
 	{
-		if( $("#ultsemmats option:selected").length > 3 ){
-			swal("Ups!", "Debes seleccionar un máximo de 3 materias", "error");
+		if( $("#ultsemmats option:selected").length > 2 ){
+			swal("Ups!", "Debes seleccionar un máximo de 2 materias", "error");
 			$('#form').submit(function(e){
-				if( $("#ultsemmats option:selected").length > 3 ){
+				if( $("#ultsemmats option:selected").length > 2 ){
 					e.preventDefault();
 					console.log('formulario detenido :)');
 				}

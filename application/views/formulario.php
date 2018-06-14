@@ -179,11 +179,11 @@
 									<option value="<?= $materia->id ?>"><?= $materia->materia ?></option>
 								<?php endforeach ?>
 							</select>
-							<label>Selecciona max 3 materias</label>
+							<label>Selecciona solo 1 materia</label>
 						</div>
 						<div class="input-field col s3">
 							<i class="material-icons prefix">add_box</i>
-							<input type="number" name="credcred" id="credcred" required disabled max="21">
+							<input type="number" name="credcred" id="credcred" required disabled max="6">
 							<label for="credcred">Créditos a solicitar</label>
 						</div>
 					</div>
@@ -247,11 +247,11 @@
 									<option value="<?= $materia->id ?>"><?= $materia->materia ?></option>
 								<?php endforeach ?>
 							</select>
-							<label>Seleccione un max de 3 materias</label>
+							<label>Seleccione un max de 2 materias</label>
 						</div>
 						<div class="input-field col s3">
 							<i class="material-icons prefix">add_box</i>
-							<input type="number" name="ultsemcred" id="ultsemcred" disabled required max="21">
+							<input type="number" name="ultsemcred" id="ultsemcred" disabled required max="7">
 							<label for="ultsemcred">Créditos a solicitar</label>
 						</div>
 					</div>
