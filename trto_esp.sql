@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-05-2018 a las 23:29:33
--- Versión del servidor: 5.7.21-0ubuntu0.17.10.1
+-- Tiempo de generación: 19-06-2018 a las 19:31:06
+-- Versión del servidor: 5.7.22-0ubuntu18.04.1
 -- Versión de PHP: 7.1.11-0ubuntu0.17.10.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -37,8 +37,8 @@ CREATE TABLE `estudiantes` (
   `cedula` varchar(9) COLLATE utf8_spanish2_ci NOT NULL,
   `telefono` varchar(11) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `email` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
-  `observacion` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `constancia_notas` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL
+  `observacion` text COLLATE utf8_spanish2_ci NOT NULL,
+  `constancia_notas` varchar(100) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -46,10 +46,31 @@ CREATE TABLE `estudiantes` (
 --
 
 INSERT INTO `estudiantes` (`id`, `nombre`, `apellido`, `cedula`, `telefono`, `email`, `observacion`, `constancia_notas`) VALUES
-(1, 'Jose Fernando', 'Lopez', '25887282', '04244444444', 'jflo1988@dominio.com', 'esdasda dadasd sd asdas dasda dsad asdasda asd asd as das dasdasdasdas das sa dsa dadsa dsa s mjjkjjk', 'nodejs_express_framework.pdf'),
-(2, 'Julio Cesar', 'Yanez Gon', '26026083', '', 'juliocesar@yanez.com', 'sdadadasdasdasds adadadasdas dsda dasd sadasdasdasd sad sad asdasdasd sada sdas dasd asda sdas dasdasdas dsadasdsadas dasdadas dasdasd asd asd asd qsadasdasd as dsa asdasdasda', 'nodejs_express_framework1.pdf'),
-(3, 'Gibert', 'Carrera M', '23795320', '04144376667', 'gibert.c@servidor.com', 'eo es un observcackin alksdlkasdlksadas jklasjdlkasjdlkjaslj askaslkjdlkasjdlkasjdlkasjdas jdalksj las jalskdjlaskjdlaskjdlaskjdlsakjdlasj laskj laksjdlaskjdlasjd lasjld ajsl jasldjasldjlasj', 'nodejs_express_framework2.pdf'),
-(4, 'Iraida ', 'Loepz', '10669419', '213123213', '2312w@xn--sdasd-rra', 'asdasdas d asdasd asdsa dasdad', 'nodejs_express_framework3.pdf');
+(1, 'jose fernando|', 'lopez', '33333333', '12345678901', 'jaja@asdasd', 'sadasdasdas asdasdasdasdas dasdasdasdas dasdaasda', 'tema71.pdf'),
+(2, 'Julio', 'Yanez', '26026083', '02464311111', 'jajaja@adasdasd', 'est oes una obsrvacion mi indice curricular es de 10 puntoss jajajjajja .l.', 'tema72.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estudiantes_ais`
+--
+
+CREATE TABLE `estudiantes_ais` (
+  `cedula` varchar(9) COLLATE utf8_spanish2_ci NOT NULL,
+  `nombre` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `apellido` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `direccion` varchar(150) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `estudiantes_ais`
+--
+
+INSERT INTO `estudiantes_ais` (`cedula`, `nombre`, `apellido`, `direccion`) VALUES
+('25887282', 'Jose Fernando', 'Lopez Ortiz', 'San Juan de los Morros'),
+('25130266', 'Cesar Antonio', 'Padrino Navas', 'San Juan de los Morros'),
+('23795320', 'Gibert', 'Carrera Morey', 'Cagua'),
+('26026083', 'Julio Cesar', 'Yanez Gonzalez', 'San Juan de los Morros');
 
 -- --------------------------------------------------------
 
@@ -71,11 +92,9 @@ CREATE TABLE `est_trat_piv` (
 INSERT INTO `est_trat_piv` (`id`, `id_estudiante`, `id_tratamiento`, `aprobado`) VALUES
 (1, 1, 1, 'false'),
 (2, 1, 2, 'true'),
-(3, 2, 2, 'false'),
-(4, 2, 3, 'false'),
-(5, 3, 2, ''),
-(6, 3, 5, ''),
-(7, 4, 5, 'false');
+(3, 2, 1, 'false'),
+(4, 2, 3, 'true'),
+(5, 2, 5, 'false');
 
 -- --------------------------------------------------------
 
@@ -93,34 +112,9 @@ CREATE TABLE `materias` (
 --
 
 INSERT INTO `materias` (`id`, `materia`) VALUES
-(1, 'ARTE Y CULTURA'),
-(2, 'INGLES II'),
-(3, 'PROBLEMATICA CIENTIFICA TECNOLOGICA'),
-(4, 'ELECTIVA I (CONDUCTA HUMANA)'),
-(5, 'FISICA I'),
-(6, 'MATEMATICA II'),
-(7, 'ALGORITMOS I'),
-(8, 'METODOLOGIA Y TECNICAS DE INVESTIGACION'),
-(9, 'ELECTIVA II (LEGISLACION INFORMATICA)'),
-(10, 'PROGRAMACION I'),
-(11, 'MATEMATICA III'),
-(12, 'FISICA I'),
-(13, 'ALGORITMOS II'),
-(14, 'ESTRUCTURAS DISCRETAS I'),
-(15, 'BASE DE DATOS'),
-(16, 'PROGRAMACION II'),
-(17, 'PROBABILIDAD Y ESTADISTICA'),
-(18, 'MATEMATICA IV'),
-(19, 'ELECTIVA III'),
-(20, 'ORGANIZACION DEL COMPUTADOR'),
-(21, 'ALGEBRA BOOLEANA'),
-(22, 'ESTRUCTURAS DISCRETAS II'),
-(23, 'PROGRAMACION III'),
-(24, 'ELECTIVA IV (TELEINFORMATICA)'),
-(25, 'TEORIA DE SISTEMAS'),
 (26, 'INVESTIGACION DE OPERACIONES'),
 (27, 'ARQUITECTURA DEL COMPUTADOR'),
-(28, 'SISTEMAS DE INFOMACION I'),
+(28, 'SISTEMAS DE INFORMACION I'),
 (29, 'METODOS NUMERICOS'),
 (30, 'INGENIERIA ECONOMICA'),
 (31, 'ELECTIVA V (INTELIGENCIA ARTIFICIAL)'),
@@ -144,6 +138,23 @@ INSERT INTO `materias` (`id`, `materia`) VALUES
 (49, 'INFORMATICA EDUCATIVA'),
 (50, 'PROYECTO DE GRADO II'),
 (51, 'GERENCIA DE PROYECTO');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `noBorrar`
+--
+
+CREATE TABLE `noBorrar` (
+  `campo` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'Este campo sirve para validar q el formulario sea activado o desactivado segun convenga '
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `noBorrar`
+--
+
+INSERT INTO `noBorrar` (`campo`) VALUES
+(1);
 
 -- --------------------------------------------------------
 
@@ -185,23 +196,13 @@ CREATE TABLE `unidades_credito` (
 --
 
 INSERT INTO `unidades_credito` (`id`, `id_est_trat_piv`, `id_materia`, `unidades`) VALUES
-(1, 1, 11, 12),
-(2, 1, 13, 12),
-(3, 1, 14, 12),
-(4, 2, 40, 0),
-(5, 2, 41, 0),
-(6, 3, 2, 0),
-(7, 3, 3, 0),
-(8, 4, 6, 0),
-(9, 4, 11, 0),
-(10, 5, 8, 0),
-(11, 5, 9, 0),
-(12, 6, 9, 12),
-(13, 6, 10, 12),
-(14, 6, 11, 12),
-(15, 7, 5, 12),
-(16, 7, 14, 12),
-(17, 7, 21, 12);
+(1, 1, 26, 3),
+(2, 2, 30, 0),
+(3, 3, 31, 2),
+(4, 4, 42, 0),
+(5, 4, 47, 0),
+(6, 5, 50, 7),
+(7, 5, 51, 7);
 
 -- --------------------------------------------------------
 
@@ -269,13 +270,13 @@ ALTER TABLE `unidades_credito`
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `est_trat_piv`
 --
 ALTER TABLE `est_trat_piv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
@@ -293,7 +294,7 @@ ALTER TABLE `tratamiento`
 -- AUTO_INCREMENT de la tabla `unidades_credito`
 --
 ALTER TABLE `unidades_credito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
