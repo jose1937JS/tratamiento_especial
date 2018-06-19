@@ -19,7 +19,25 @@
 						<?= $usuario ?> <i class="material-icons right">keyboard_arrow_down</i>
 					</a></li>
 					<ul id="salir" class="dropdown-content">
-						<li><?= anchor('login_controller/logout', 'Salir', 'class="center blue lighten-1 white-text"') ?></a></li>
+						<?php if($usuario == "admin"): ?>
+							<li style="margin-top: 10px"><?php if($id[0]->campo == '0'){
+								echo anchor("activar/1", 'ON', ['class'=>"lighten-1 white-text btn green", 'title'=> "Activar Formulario", 'style'=> 'padding-bottom: 30px']);
+							}
+							else {
+								echo anchor("activar/0", 'OFF', ['class'=>"lighten-1 white-text btn red", 'title'=> "Desactivar Formulario", 'style'=> 'padding-bottom: 30px']);
+							}
+							?></li>
+						<?php else: ?>
+							<li style="margin-top: 10px"><?php if($id[0]->campo == '0'){
+								echo anchor("activar/1", 'ON', ['class'=>"lighten-1 white-text btn green disabled", 'title'=> "Activar Formulario"]);
+							}
+							else {
+								echo anchor("activar/0", 'OFF', ['class'=>"lighten-1 white-text btn red disabled", 'title'=> "Desactivar Formulario"]);
+							}
+							?></li>
+						<?php endif ?>
+						<li class="divider" tabindex="-1"></li>
+						<li><?= anchor('login_controller/logout', 'Salir', 'class="center lighten-1 black-text"') ?></a></li>
 					</ul>
 				</ul>
 			</div>

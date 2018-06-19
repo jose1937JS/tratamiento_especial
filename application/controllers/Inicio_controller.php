@@ -10,15 +10,25 @@ class Inicio_controller extends CI_Controller {
 		$this->load->helper('form');
 
 		$this->load->model('inicio_model');
+		$this->load->model('solicitud_model');
 	}
 
 	public function index()
 	{
 
-		if ( $this->session->userdata('usuario') ){
-			$data = ['usuario' => $this->session->userdata('usuario'), 'est' => $this->inicio_model->get_estudiantes()];
+		if ( $this->session->userdata('usuario') )
+		{
+			$data = [
+				'usuario' => $this->session->userdata('usuario'), 
+				'est' 	  => $this->inicio_model->get_estudiantes()
+			];
 
-			$this->load->view('includes/header', $dat = ['usuario' => $this->session->userdata('usuario')]);
+			$data2 = [
+				'usuario' => $this->session->userdata('usuario'), 
+				'id' 	  => $this->solicitud_model->checkFormStatusDB()
+			];
+
+			$this->load->view('includes/header', $data2);
 			$this->load->view('inicio', $data);
 			$this->load->view('includes/footer');
 		}
@@ -33,7 +43,12 @@ class Inicio_controller extends CI_Controller {
 		
 		$data = ['usuario' => $this->session->userdata('usuario'), 'est' => $this->inicio_model->filtro($f)];
 
-		$this->load->view('includes/header', $dat = ['usuario' => $this->session->userdata('usuario')]);
+		$data2 = [
+			'usuario' => $this->session->userdata('usuario'), 
+			'id' 	  => $this->solicitud_model->checkFormStatusDB()
+		];
+
+		$this->load->view('includes/header', $data2);
 		$this->load->view('inicio', $data);
 		$this->load->view('includes/footer');
 	}
@@ -42,19 +57,17 @@ class Inicio_controller extends CI_Controller {
 	{
 		$c = $this->input->post('search');
 
+		$data2 = [
+			'usuario' => $this->session->userdata('usuario'), 
+			'id' 	  => $this->solicitud_model->checkFormStatusDB()
+		];
+
 		$data = ['usuario' => $this->session->userdata('usuario'), 'est' => $this->inicio_model->filtro_ced($c)];
 
-		$this->load->view('includes/header', $dat = ['usuario' => $this->session->userdata('usuario')]);
+		$this->load->view('includes/header', $data2);
 		$this->load->view('inicio', $data);
 		$this->load->view('includes/footer');
 	}
-
-	// public function data()
-	// {
-	// 	$this->output
-	// 		->set_content_type('application/json')
-	// 		->set_output(json_encode($this->inicio_model->get_estudiantes()->result()));
-	// }
 
 	public function eliminar($id)
 	{
@@ -62,32 +75,23 @@ class Inicio_controller extends CI_Controller {
 		redirect($this->session->userdata('usuario'));
 	}
 
-	// public function editar($id)
-	// {
-	// 	$data = [
-	// 		'cedula' => $this->input->post('cedula'),
-	// 		'nombre' => $this->input->post('nombre'),
-	// 		'apellido' => $this->input->post('apellido'),
-	// 		'telefono' => $this->input->post('telefono'),
-	// 		'email' => $this->input->post('email')
-	// 	];
-
-	// 	$this->inicio_model->editar($id, $data);
-	// }
-
 	public function informacion($id)
 	{
 		$data = ['infor' => $this->inicio_model->perfil($id)->result()];
+		$data2 = [
+			'usuario' => $this->session->userdata('usuario'), 
+			'id' 	  => $this->solicitud_model->checkFormStatusDB()
+		];
 
-		$this->load->view('includes/header', ['usuario' => $this->session->userdata('usuario')]);
+		$this->load->view('includes/header', $data2);
 		$this->load->view('perfil', $data);
 		$this->load->view('includes/footer');
 	}
 
-	public function aprobar_sol($id)
+	public function aprobar_sol($id, $bool)
 	{
 		// $this->load->library('email');
-		$this->inicio_model->aprobar_sol($id);
+		$this->inicio_model->aprobar_sol($id, $bool);
 		// $asd = $this->inicio_model->perfil($id)->result();
 
 		// $this->email->from('aasd@asd.com', 'name');
@@ -101,6 +105,27 @@ class Inicio_controller extends CI_Controller {
 
 
 		redirect('Inicio_controller');
+	}
+
+	// public function aniadir()
+	// {
+	// 	$data = [
+	// 		'cedula'   => $this->input->post('cedula'),
+	// 		'nombre'   => $this->input->post('nombre'),
+	// 		'apellido' => $this->input->post('apellido'),
+	// 		'telefono' => $this->input->post('telefono'),
+	// 		'correo'   => $this->input->post('correo')
+	// 	];
+
+	// 	$this->inicio_model->registro($data);
+	// 	redirect('estudiantes');
+	// }
+
+
+	public function pdfsingular($id)
+	{
+		$data['pdf'] = $this->inicio_model->pdfsingular($id)->result();
+		$this->load->view('pdfsingular', $data);
 	}
 
 }

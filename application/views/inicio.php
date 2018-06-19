@@ -16,8 +16,10 @@
 			<img src="<?= base_url() ?>application/views/assets/images/AIS.jpg" width="90px" height="80px">
 		</div>
 	</div>
+	<br>
+	<p>San Juan de los Morros, <?= date("l d F o H:i:s") ?></p>
 </div>
-	
+
 <div class="container" id="app">
 	<div class="card">
 		<div class="card-content">
@@ -105,7 +107,12 @@
 					</tr>
 				</tfoot>
 			</table>
-
+			<div class="pie_pagina">
+				
+			</div>
+			<div class="cuestion">
+				<p class="center">Argenis Mendoza <br>Decano del Area</p>
+			</div>
 		</div>
 	</div>
 </div>

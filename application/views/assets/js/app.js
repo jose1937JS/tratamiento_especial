@@ -72,16 +72,27 @@ $(function(){
 	});
 	$('#extmats').change(function()
 	{
-		if( $("#extmats option:selected").length > 2 ){
-			swal("Ups!", "Debes seleccionar un máximo de 2 materias", "error");
+		if( $("#extmats option:selected").length > 1 ){
+			swal("Ups!", "Debes seleccionar tan solo 1 materia", "error");
 			$('#form').submit(function(e){
-				if( $("#extmats option:selected").length > 2 ){
+				if( $("#extmats option:selected").length > 1 ){
 					e.preventDefault();
 					console.log('formulario detenido :)');
 				}
 			})
 		}
 	});
+	$('#extmats option').each(function(index, elem){
+		if ( elem.innerText == "SISTEMAS DE INFORMACION I"
+			|| elem.innerText == "SISTEMAS DE INFORMACION II"
+			|| elem.innerText == "SISTEMAS DE INFORMACION III"
+			|| elem.innerText == "ELECTIVA DE AREA I"
+			|| elem.innerText == "ELECTIVA DE AREA II"
+			|| elem.innerText == "PASANTIA" )
+		{
+			elem.setAttribute('disabled', '');
+		}
+	})
 
 	$('#paralelo').change(function()
 	{

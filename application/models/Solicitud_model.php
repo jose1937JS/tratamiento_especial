@@ -11,7 +11,6 @@ class Solicitud_model extends CI_Model {
 	public function add($data, $trats)
 	{
 		$this->db->insert('estudiantes', $data);
-// Five Finger Death Punch - Wrong Side Of Heaven lyrics
 
 		$a = $this->db->query('select @@identity as last_id');
 		$b = $a->result_array();
@@ -139,5 +138,15 @@ class Solicitud_model extends CI_Model {
 	public function get_mats()
 	{
 		return $this->db->get('materias');
+	}
+
+	public function checkFormStatusDB()
+	{
+		return $this->db->get('noBorrar')->result();
+	}
+
+	public function UpdateFormStatusDB($status)
+	{
+		$this->db->update('noBorrar', ['campo' => $status]);
 	}
 }

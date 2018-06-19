@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -14,14 +14,11 @@
 		<nav class="blue z-depth-3">
 			<div class="nav-wrapper container">
 				<a href="#" class="brand-logo"><img style="width:130px; margin-top:3px" src="<?= base_url() ?>/application/views/assets/images/unerg.png"></a>
-				
 			</div>
 		</nav>
 	</div>
-	
-	<br>
 
-	<main class="container">
+	<main class="container formulario">
 
 		<div class="row slik">
 			
@@ -205,7 +202,7 @@
 									<option value="<?= $materia->id ?>"><?= $materia->materia ?></option>
 								<?php endforeach ?>
 							</select>
-							<label>Selecciona un max de 2 materias</label>
+							<label>Selecciona solo una materia</label>
 						</div>
 					</div>
 

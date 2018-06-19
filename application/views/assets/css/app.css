@@ -34,10 +34,19 @@ li {
 	font-size: 13px
 }
 
-/*ul > li {
-	padding-left: 10px;
-	list-style-type: circle;
-}*/
+.mensaje {	opacity: .9 }
+
+.pie_pagina{
+	border-bottom: 1px solid;
+	width: 200px;
+	margin: auto;
+	margin-top: 18%;
+}
+
+.cuestion{
+	margin: auto;
+	margin-top: 4%;
+}
 
 @media print {
 	body, html {

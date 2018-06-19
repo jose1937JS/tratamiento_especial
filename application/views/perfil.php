@@ -5,6 +5,12 @@
 
 		<div class="card col s6">
 			<div class="card-content">
+				<div class="row">
+					<div class="col offset-s10 ">
+						<?php $idd = $infor[1]->id_estudiante ?>
+						<?= anchor("pdfsingular/$idd", 'PDF', ['class'=>"btn red waves-light waves-light right", 'id'=>"pdfperfil"]) ?>
+					</div>
+				</div>
 				<ul class="collection with-header">
 					<li class="collection-header"><span class="flow-text"><?= $infor[1]->nombre.' '.$infor[1]->apellido ?></span></li>
 					<li class="collection-item"><b>Cédula :</b> <?= $infor[1]->cedula ?></li>
@@ -27,9 +33,10 @@
 										<td class="center"><?= $value->unidades ?></td>
 										<td class="center">
 											<?php if($value->aprobado == 'false'){
-												echo anchor("inicio_controller/aprobar_sol/$value->id",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Aprobar Solicitud / No aplica" class="tooltiped btn waves-effect waves-light btn-small orange" style="padding: 0 8px"');
-											} else {
-												echo anchor("inicio_controller/aprobar_sol/$value->id",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Solicitud Aprobada" class="tooltiped btn waves-effect waves-light btn-small green disabled" style="padding: 0 8px"');
+												echo anchor("inicio_controller/aprobar_sol/$value->id/true",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Aprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small orange" style="padding: 0 8px"');
+											}
+											else {
+												echo anchor("inicio_controller/aprobar_sol/$value->id/false",'<i class="material-icons">thumb_down</i>', 'data-tooltip="Desaprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small green" style="padding: 0 8px"');
 											}
 											?>
 											
