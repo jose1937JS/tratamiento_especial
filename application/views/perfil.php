@@ -32,11 +32,21 @@
 										<td><?= $value->tratamiento_esp ?></td>
 										<td class="center"><?= $value->unidades ?></td>
 										<td class="center">
-											<?php if($value->aprobado == 'false'){
-												echo anchor("inicio_controller/aprobar_sol/$value->id/true",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Aprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small orange" style="padding: 0 8px"');
+											<?php if ($usuario == 'admin') {
+												if($value->aprobado == 'false'){
+													echo anchor("inicio_controller/aprobar_sol/$value->id/true",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Aprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small orange" style="padding: 0 8px"');
+												}
+												else {
+													echo anchor("inicio_controller/aprobar_sol/$value->id/false",'<i class="material-icons">thumb_down</i>', 'data-tooltip="Desaprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small green" style="padding: 0 8px"');
+												}
 											}
 											else {
-												echo anchor("inicio_controller/aprobar_sol/$value->id/false",'<i class="material-icons">thumb_down</i>', 'data-tooltip="Desaprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small green" style="padding: 0 8px"');
+												if($value->aprobado == 'false'){
+													echo anchor("inicio_controller/aprobar_sol/$value->id/true",'<i class="material-icons">thumb_up</i>', 'data-tooltip="Aprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small orange disabled" style="padding: 0 8px"');
+												}
+												else {
+													echo anchor("inicio_controller/aprobar_sol/$value->id/false",'<i class="material-icons">thumb_down</i>', 'data-tooltip="Desaprobar Solicitud" class="tooltiped btn waves-effect waves-light btn-small green disabled" style="padding: 0 8px"');
+												}
 											}
 											?>
 											

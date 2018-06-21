@@ -29,26 +29,16 @@ li {
 }
 .bold { font-weight: bold; }
 
-.headpdf { display: none; }
+.headpdf, .pie_pagina { display: none; }
 .card-content {
 	font-size: 13px
 }
 
 .mensaje {	opacity: .9 }
-
-.pie_pagina{
-	border-bottom: 1px solid;
-	width: 200px;
-	margin: auto;
-	margin-top: 18%;
-}
-
-.cuestion{
-	margin: auto;
-	margin-top: 4%;
-}
+p.fecha { display: none !important; }
 
 @media print {
+
 	body, html {
 		background: white;
 	}
@@ -56,7 +46,7 @@ li {
 	div.asd, div.navbar-fixed, .func, .material-tooltip {
 		display: none;
 	}
-	.headpdf { display: block; }
+	.headpdf, p.fecha { display: block !important; }
 	.card {
 		box-shadow: 0 0 0 0 , 0 0 0 0 , 0 0 0 0;
 		padding: 0;
@@ -67,5 +57,12 @@ li {
 	.container { width: 100% }
 	table {
 		font-size: 10px;
+	}
+	.pie_pagina {
+		display: block;
+		border-bottom: 1px solid;
+		width: 200px;
+		margin: auto;
+		margin-top: 18%;
 	}
 }

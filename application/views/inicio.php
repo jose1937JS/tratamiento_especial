@@ -17,8 +17,9 @@
 		</div>
 	</div>
 	<br>
-	<p>San Juan de los Morros, <?= date("l d F o H:i:s") ?></p>
 </div>
+
+<p class="fecha">San Juan de los Morros, <?= date("l d F o") ?></p>
 
 <div class="container" id="app">
 	<div class="card">
@@ -107,10 +108,11 @@
 					</tr>
 				</tfoot>
 			</table>
-			<div class="pie_pagina">
-				
-			</div>
+
+			<div class="pie_pagina"></div>
+			
 			<div class="cuestion">
+				<br>
 				<p class="center">Argenis Mendoza <br>Decano del Area</p>
 			</div>
 		</div>

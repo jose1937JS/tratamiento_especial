@@ -11,7 +11,12 @@
 	<div class="navbar-fixed ">
 		<nav class="blue z-depth-3">
 			<div class="nav-wrapper container">
-				<a href="#" class="brand-logo"><img style="width:130px; margin-top:3px" src="<?= base_url() ?>/application/views/assets/images/unerg.png"></a>
+				<a href="#" class="brand-logo">
+					<img style="width:130px; margin-top:3px" src="<?= base_url() ?>/application/views/assets/images/unerg.png">
+				</a>
+				<ul class="left hide-on-med-and-down" style="margin-left: 150px">
+					<li><h5 class="">AREA DE INGENIERIA EN SISTEMAS</h5></li>
+				</ul>
 				<ul class="right hide-on-med-and-down">
 					<li><?= anchor("$usuario", '<i class="material-icons left">home</i> Inicio') ?></li>
 					<!-- <li><?= anchor("$usuario/aprobados", '<i class="material-icons left">check</i>Aprobados') ?></li> -->
