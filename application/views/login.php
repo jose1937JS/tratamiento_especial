@@ -45,8 +45,8 @@
 				<div class="input-field">
 					<i class="material-icons prefix">group</i>
 					<select name="user">
-						<option value="admin">Admin</option>
-						<option selected value="secretaria">Secretaria</option>
+						<option selected value="admin">Javier De La Rosa</option>
+						<option value="secretaria">Secretaria</option>
 					</select>
 					<label>Usuario</label>
 				</div>

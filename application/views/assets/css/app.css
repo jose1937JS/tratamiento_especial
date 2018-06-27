@@ -1,5 +1,5 @@
 body {
-	background: url('http://127.0.0.1/JFLO/6mill/application/views/assets/images/AREA.jpg');
+	background: url('http://127.0.0.1/JFLO/tratamiento_especial/application/views/assets/images/AREA.jpg');
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center
@@ -29,13 +29,15 @@ li {
 }
 .bold { font-weight: bold; }
 
-.headpdf, .pie_pagina { display: none; }
+.headpdf, .firma { display: none; }
 .card-content {
 	font-size: 13px
 }
 
 .mensaje {	opacity: .9 }
 p.fecha { display: none !important; }
+
+
 
 @media print {
 
@@ -46,7 +48,7 @@ p.fecha { display: none !important; }
 	div.asd, div.navbar-fixed, .func, .material-tooltip {
 		display: none;
 	}
-	.headpdf, p.fecha { display: block !important; }
+	.headpdf, p.fecha, .firma { display: block !important; }
 	.card {
 		box-shadow: 0 0 0 0 , 0 0 0 0 , 0 0 0 0;
 		padding: 0;
@@ -58,11 +60,11 @@ p.fecha { display: none !important; }
 	table {
 		font-size: 10px;
 	}
-	.pie_pagina {
+	.raya {
 		display: block;
-		border-bottom: 1px solid;
-		width: 200px;
 		margin: auto;
-		margin-top: 18%;
+		border-bottom: 1px solid;
+		width: 250px;
 	}
+	.firma { margin-top: 20% }
 }

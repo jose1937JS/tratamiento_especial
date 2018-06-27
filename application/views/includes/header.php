@@ -11,10 +11,12 @@
 	<div class="navbar-fixed ">
 		<nav class="blue z-depth-3">
 			<div class="nav-wrapper container">
-				<a href="#" class="brand-logo">
-					<img style="width:130px; margin-top:3px" src="<?= base_url() ?>/application/views/assets/images/unerg.png">
-				</a>
-				<ul class="left hide-on-med-and-down" style="margin-left: 150px">
+				<div class="left">
+					<a href="#" class="brand-logo left">
+						<img style="width:130px; margin-top:3px" src="<?= base_url() ?>/application/views/assets/images/unerg.png">
+					</a>
+				</div>
+				<ul class="left hide-on-med-and-down" class="right" style="margin-left: 150px">
 					<li><h5 class="">AREA DE INGENIERIA EN SISTEMAS</h5></li>
 				</ul>
 				<ul class="right hide-on-med-and-down">
@@ -42,9 +44,34 @@
 							?></li>
 						<?php endif ?>
 						<li class="divider" tabindex="-1"></li>
+						<li><a class="waves-effect waves-light modal-trigger center" href="#modal1">Cambiar Contraseña</a></li>
+						<li class="divider" tabindex="-1"></li>
 						<li><?= anchor('login_controller/logout', 'Salir', 'class="center lighten-1 black-text"') ?></a></li>
 					</ul>
 				</ul>
 			</div>
 		</nav>
+	</div>
+
+	<!-- Modal Structure -->
+	<div id="modal1" class="modal" style="width: 400px">
+		<?= form_open('Inicio_controller/cambioClave', "id='a'") ?>
+			<div class="modal-content">
+				<h4 class="center">Cambio de clave</h4>
+				<br>
+				<div class="row">
+					<div class="col">
+						<label for="ante">Antigua Contraseña</label>
+						<input type="password" id="ante" onchange="if (this.value != <?= $clave ?>) { $('#a').submit(function(e){ e.preventDefault(); alert('La  clave anterior es incorrecta') }) }">
+					</div>
+					<div class="col">
+						<label for="despues">Nueva Contraseña</label>
+						<input type="password" id="despues" name="nueva">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="modal-action modal-close waves-effect waves-green btn red">CAMBIAR</a>
+			</div>
+		</form>
 	</div>

@@ -80,8 +80,10 @@
 	<script src="<?= base_url() ?>/application/views/assets/js/jquery-3.2.1.min.js"></script>
 	<script>
 		$(function(){
-			print();
-			// funcion para regresar a la pagina anterior
+			print()
+			setInterval(function(){
+				history.back()
+			}, 1000)
 		})
 	</script>
 </body>

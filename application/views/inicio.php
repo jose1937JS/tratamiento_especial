@@ -109,11 +109,10 @@
 				</tfoot>
 			</table>
 
-			<div class="pie_pagina"></div>
-			
-			<div class="cuestion">
-				<br>
-				<p class="center">Argenis Mendoza <br>Decano del Area</p>
+			<div class="row firma">
+				<div class="raya"></div>
+				<p class="center">Fulanito de Tal :</p>
+				<p class="center">Cargo Importante</p>
 			</div>
 		</div>
 	</div>

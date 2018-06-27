@@ -25,7 +25,8 @@ class Inicio_controller extends CI_Controller {
 
 			$data2 = [
 				'usuario' => $this->session->userdata('usuario'), 
-				'id' 	  => $this->solicitud_model->checkFormStatusDB()
+				'id' 	  => $this->solicitud_model->checkFormStatusDB(),
+				'clave'	  => $this->db->get_where('usuarios', ['user' => 'admin'])->result()[0]->pass
 			];
 
 			$this->load->view('includes/header', $data2);
@@ -126,6 +127,14 @@ class Inicio_controller extends CI_Controller {
 	{
 		$data['pdf'] = $this->inicio_model->pdfsingular($id)->result();
 		$this->load->view('pdfsingular', $data);
+	}
+
+	public function cambioClave()
+	{
+		$pass = $this->input->post('nueva');
+		$this->db->where('user', 'admin');
+		$this->db->update('usuarios', ['pass' => $pass]);
+		redirect('admin');
 	}
 
 }
