@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-06-2018 a las 19:31:06
+-- Tiempo de generación: 27-06-2018 a las 12:53:30
 -- Versión del servidor: 5.7.22-0ubuntu18.04.1
 -- Versión de PHP: 7.1.11-0ubuntu0.17.10.1
 
@@ -92,8 +92,7 @@ CREATE TABLE `est_trat_piv` (
 INSERT INTO `est_trat_piv` (`id`, `id_estudiante`, `id_tratamiento`, `aprobado`) VALUES
 (1, 1, 1, 'false'),
 (2, 1, 2, 'true'),
-(3, 2, 1, 'false'),
-(4, 2, 3, 'true'),
+(3, 2, 1, 'true'),
 (5, 2, 5, 'false');
 
 -- --------------------------------------------------------
@@ -154,7 +153,7 @@ CREATE TABLE `noBorrar` (
 --
 
 INSERT INTO `noBorrar` (`campo`) VALUES
-(1);
+(0);
 
 -- --------------------------------------------------------
 
@@ -196,13 +195,11 @@ CREATE TABLE `unidades_credito` (
 --
 
 INSERT INTO `unidades_credito` (`id`, `id_est_trat_piv`, `id_materia`, `unidades`) VALUES
-(1, 1, 26, 3),
-(2, 2, 30, 0),
-(3, 3, 31, 2),
-(4, 4, 42, 0),
-(5, 4, 47, 0),
-(6, 5, 50, 7),
-(7, 5, 51, 7);
+(1, 1, 26, 10),
+(2, 2, 30, 4),
+(3, 3, 31, 4),
+(6, 5, 50, 5),
+(7, 5, 51, 3);
 
 -- --------------------------------------------------------
 
@@ -211,7 +208,7 @@ INSERT INTO `unidades_credito` (`id`, `id_est_trat_piv`, `id_materia`, `unidades
 --
 
 CREATE TABLE `usuarios` (
-  `user` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
+  `user` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
   `pass` varchar(20) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 

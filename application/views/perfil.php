@@ -30,7 +30,7 @@
 									<tr>
 										<td><?= $value->materia ?></td>
 										<td><?= $value->tratamiento_esp ?></td>
-										<td class="center"><?= $value->unidades ?></td>
+										<td class="center"><a title="editar unidad" onclick="document.getElementById('idunidad').value = <?= $value->idunidad ?>; document.getElementById('unidad').setAttribute('placeholder', <?= $value->unidades ?>)" class="waves-effect waves-light btn red modal-trigger" href="#edit"><?= $value->unidades ?></a></td>
 										<td class="center">
 											<?php if ($usuario == 'admin') {
 												if($value->aprobado == 'false'){
@@ -64,3 +64,23 @@
 	</div>
 
 </main>
+
+<div class="modal" id="edit" style="width: 400px">
+	<div class="modal-content">
+		<?= form_open('Inicio_controller/editarUnidad') ?>
+
+			<input type="hidden" name="idunidad" id="idunidad">
+			<input type="hidden" name="idest" value="<?= $infor[1]->idest ?>">
+
+			<h5 class="center">Editar Unidad Curricular</h5>
+			<br>
+			<div class="input-field">
+				<input type="number" name="unidad" id="unidad" placeholder="" autofocus="">
+				<label for="unidad">Unidad de Crédito Actual</label>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn red">ACTUALIZAR</button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -78,15 +78,22 @@ class Inicio_controller extends CI_Controller {
 
 	public function informacion($id)
 	{
-		$data = ['infor' => $this->inicio_model->perfil($id)->result()];
-		$data2 = [
-			'usuario' => $this->session->userdata('usuario'), 
-			'id' 	  => $this->solicitud_model->checkFormStatusDB()
-		];
+		if ( $this->session->userdata('usuario') )
+		{
+			$data = ['infor' => $this->inicio_model->perfil($id)->result()];
+			$data2 = [
+				'usuario' => $this->session->userdata('usuario'), 
+				'id' 	  => $this->solicitud_model->checkFormStatusDB(),
+				'clave'	  => $this->db->get_where('usuarios', ['user' => 'admin'])->result()[0]->pass
+			];
 
-		$this->load->view('includes/header', $data2);
-		$this->load->view('perfil', $data);
-		$this->load->view('includes/footer');
+			$this->load->view('includes/header', $data2);
+			$this->load->view('perfil', $data);
+			$this->load->view('includes/footer');
+		}
+		else {
+			redirect('');
+		}
 	}
 
 	public function aprobar_sol($id, $bool)
@@ -108,21 +115,6 @@ class Inicio_controller extends CI_Controller {
 		redirect('Inicio_controller');
 	}
 
-	// public function aniadir()
-	// {
-	// 	$data = [
-	// 		'cedula'   => $this->input->post('cedula'),
-	// 		'nombre'   => $this->input->post('nombre'),
-	// 		'apellido' => $this->input->post('apellido'),
-	// 		'telefono' => $this->input->post('telefono'),
-	// 		'correo'   => $this->input->post('correo')
-	// 	];
-
-	// 	$this->inicio_model->registro($data);
-	// 	redirect('estudiantes');
-	// }
-
-
 	public function pdfsingular($id)
 	{
 		$data['pdf'] = $this->inicio_model->pdfsingular($id)->result();
@@ -135,6 +127,16 @@ class Inicio_controller extends CI_Controller {
 		$this->db->where('user', 'admin');
 		$this->db->update('usuarios', ['pass' => $pass]);
 		redirect('admin');
+	}
+
+	public function editarUnidad()
+	{
+		$unidad   = $this->input->post('unidad');
+		$id 	  = $this->input->post('idunidad');
+		$idest   = $this->input->post('idest');
+
+		$this->db->update('unidades_credito', ['unidades' => $unidad], ['id' => $id]);
+		redirect('admin/informacion/'. $idest);
 	}
 
 }

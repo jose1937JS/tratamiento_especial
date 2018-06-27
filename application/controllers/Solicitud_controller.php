@@ -12,8 +12,8 @@
 
 /* cambiarl el logo del pdf 								X
  * vista anterior cuando se cancele en la vista del pdf     v/
- * modificar unidades de credito
- * jdelarosa@unerg.edu.­ve y la clave 123456 , q se cambie
+ * modificar unidades de credito							
+ * jdelarosa@unerg.edu.­ve y la clave 123456 , q se cambie   v/
  */
 
 class Solicitud_controller extends CI_Controller {
